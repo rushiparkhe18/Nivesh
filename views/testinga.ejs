@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Nivesh | Quiz</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .quiz-container {
+            margin-top: 5%;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .option-card {
+            cursor: pointer;
+            margin-bottom: 15px;
+            border: 2px solid #006D5B;
+            border-radius: 5px;
+            transition: all 0.3s;
+            padding: 15px;
+            background-color: white;
+        }
+
+        .option-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+        }
+
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+        }
+
+        .score {
+            font-size: 1.5rem;
+            color: darkslategray;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result-container {
+            display: none;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="quiz-container">
+            <h1>Nivesh Advanced's Quiz</h1>
+            <div class="question" id="ques"></div>
+            <div class="options" id="opt"></div>
+            <button class="btn btn-success btn-lg" id="nextBtn">Next Question</button>
+            <div id="score" class="score"></div>
+            <div id="result" class="result-container">
+                <h2>Results</h2>
+                <div id="resultScore"></div>
+                <button class="btn btn-primary btn-lg btn-block" id="restartBtn">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const Questions = [
+            {
+                question: "What is the primary purpose of asset allocation in an investment portfolio?",
+                correct_answer: "To spread risk across different asset classes",
+                incorrect_answers: [
+                    "To maximize returns by investing in a single asset class",
+                    "To focus solely on high-risk investments",
+                    "To eliminate the need for research"
+                ]
+            },
+            {
+                question: "What does the term 'stop-loss order' refer to in trading?",
+                correct_answer: "An order to sell a security at a predetermined price to limit losses",
+                incorrect_answers: [
+                    "An order to buy a security at a market price",
+                    "An order that guarantees profit",
+                    "An order to hold onto a security indefinitely"
+                ]
+            },
+            {
+                question: "What is value investing?",
+                correct_answer: "Buying undervalued stocks with potential for growth",
+                incorrect_answers: [
+                    "Investing in the latest tech trends",
+                    "Investing solely in real estate",
+                    "Trading based on market trends"
+                ]
+            },
+            {
+                question: "What does the term 'market correction' refer to?",
+                correct_answer: "A significant drop in stock prices typically 10% or more from a recent peak",
+                incorrect_answers: [
+                    "An increase in stock prices over time",
+                    "A period of stable stock prices",
+                    "A change in company management"
+                ]
+            },
+            {
+                question: "What is the 'herd mentality' in investing?",
+                correct_answer: "Following the investment decisions of the majority, often without analysis",
+                incorrect_answers: [
+                    "Making investment decisions based on thorough research",
+                    "Investing in isolation",
+                    "Holding onto stocks regardless of market conditions"
+                ]
+            }
+        ];
+
+        const ques = document.getElementById("ques");
+        const opt = document.getElementById("opt");
+        const scoreDisplay = document.getElementById("score");
+        const resultContainer = document.getElementById("result");
+        const resultScore = document.getElementById("resultScore");
+        const nextBtn = document.getElementById("nextBtn");
+        const restartBtn = document.getElementById("restartBtn");
+
+        let currQuestion = 0;
+        let score = 0;
+
+        function loadQues() {
+            if (currQuestion >= Questions.length) {
+                displayResults();
+                return;
+            }
+
+            const currentQuestion = Questions[currQuestion].question;
+            ques.innerText = decodeHtml(currentQuestion);
+            opt.innerHTML = "";
+
+            const correctAnswer = Questions[currQuestion].correct_answer;
+            const incorrectAnswers = Questions[currQuestion].incorrect_answers;
+            const options = [correctAnswer, ...incorrectAnswers];
+            options.sort(() => Math.random() - 0.5);
+
+            options.forEach((option) => {
+                const optionCard = document.createElement("div");
+                optionCard.classList.add("option-card");
+                optionCard.textContent = decodeHtml(option);
+                optionCard.onclick = () => selectAnswer(optionCard, option);
+                opt.appendChild(optionCard);
+            });
+        }
+
+        function decodeHtml(html) {
+            const textArea = document.createElement("textarea");
+            textArea.innerHTML = html;
+            return textArea.value;
+        }
+
+        function selectAnswer(optionCard, selectedOption) {
+            const correctAnswer = Questions[currQuestion].correct_answer;
+
+            if (selectedOption === correctAnswer) {
+                optionCard.classList.add("correct");
+                score++;
+            } else {
+                optionCard.classList.add("incorrect");
+                // Find the correct option and highlight it
+                const optionCards = document.querySelectorAll(".option-card");
+                optionCards.forEach((card) => {
+                    if (card.textContent === correctAnswer) {
+                        card.classList.add("correct");
+                    }
+                });
+            }
+
+            // Disable all cards after selection
+            const optionCards = document.querySelectorAll(".option-card");
+            optionCards.forEach((card) => {
+                card.style.pointerEvents = "none"; // Disable pointer events
+            });
+        }
+
+        function displayResults() {
+            resultContainer.style.display = "block";
+            scoreDisplay.style.display = "none";
+            nextBtn.style.display = "none";
+            resultScore.innerHTML = `You scored <strong>${score}</strong> out of <strong>${Questions.length}</strong>`;
+        }
+
+        nextBtn.addEventListener("click", () => {
+            currQuestion++;
+            loadQues();
+        });
+
+        restartBtn.addEventListener("click", () => {
+            currQuestion = 0;
+            score = 0;
+            resultContainer.style.display = "none";
+            scoreDisplay.style.display = "block";
+            nextBtn.style.display = "block";
+            loadQues();
+        });
+
+        // Start the quiz
+        loadQues();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

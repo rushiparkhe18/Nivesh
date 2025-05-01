@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Nivesh | Your Profile</title>
+
+    <!-- Stylesheets -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/responsive.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <style>
+        /* For webkit browsers like Chrome and Safari */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .upload-preview {
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper dashboard ">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- Header Span -->
+        <span class="header-span"></span>
+
+        <!-- Main Header-->
+        <%- include("../components/DashboardHeader") -%>
+            <!--End Main Header -->
+
+            <!-- Sidebar Backdrop -->
+            <div class="sidebar-backdrop"></div>
+
+            <!-- User Sidebar -->
+            <%- include("../components/DashboardSidebar") -%>
+
+                <!-- End User Sidebar -->
+
+                <!-- Results section for displaying pie and doughnut charts -->
+                <!-- Dashboard -->
+                <section class="user-dashboard">
+                    <div class="dashboard-outer">
+                        <div class="upper-title-box">
+                            <h3>Your Profile!</h3>
+                            <div class="text">Ready to jump back in?</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Ls widget -->
+                                <div class="ls-widget">
+                                    <div class="tabs-box">
+                                        <div class="widget-title">
+                                            <h4>My Profile</h4>
+                                        </div>
+
+                                        <div class="widget-content">
+
+                                            <div class="widget-content">
+                                                <form class="default-form" action="/dashboard-profile/update"
+                                                    method="post">
+                                                    <div class="row">
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="name">Name</label>
+                                                            <input id="name" name="name" type="text"
+                                                                value="<%= userdetails ? userdetails.name : '' %>"
+                                                                placeholder="John Doe" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="education">Education</label>
+                                                            <input id="education" name="education" type="text"
+                                                                value="<%= userdetails ? userdetails.education : '' %>"
+                                                                placeholder="Bachelor's Degree" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="salary">Salary (₹)</label>
+                                                            <input id="salary" name="salary" type="number"
+                                                                value="<%= userdetails ? userdetails.salary : '' %>"
+                                                                placeholder="50000" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="age">Age</label>
+                                                            <input id="age" name="age" type="number"
+                                                                value="<%= userdetails ? userdetails.age : '' %>"
+                                                                placeholder="30" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="medical-allotments">Number of Medical
+                                                                Allotments</label>
+                                                            <input id="medical-allotments" name="medicalAllotments"
+                                                                type="number"
+                                                                value="<%= userdetails ? userdetails.medicalAllotments : '' %>"
+                                                                placeholder="4" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="medical-expenses">Total Medical Expenses
+                                                                (₹)</label>
+                                                            <input id="medical-expenses" name="medicalExpenses"
+                                                                type="number"
+                                                                value="<%= userdetails ? userdetails.medicalExpenses : '' %>"
+                                                                placeholder="500" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="loan-emi">Loan EMI (₹)</label>
+                                                            <input id="loan-emi" name="loanEmi" type="number"
+                                                                value="<%= userdetails ? userdetails.loanEmi : '' %>"
+                                                                placeholder="200" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="lifestyle-expenses">Lifestyle Expenses
+                                                                (₹)</label>
+                                                            <input id="lifestyle-expenses" name="lifestyleExpenses"
+                                                                type="number"
+                                                                value="<%= userdetails ? userdetails.lifestyleExpenses : '' %>"
+                                                                placeholder="4500" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="savings">Savings (₹)</label>
+                                                            <input id="savings" name="savings" type="number"
+                                                                value="<%= userdetails ? userdetails.savings : '' %>"
+                                                                placeholder="4800" required readonly>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="work-sector">Work Sector</label>
+                                                            <input id="work-sector" name="workSector" type="text"
+                                                                value="<%= userdetails ? userdetails.workSector : '' %>"
+                                                                placeholder="IT" required>
+                                                        </div>
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="risk-tolerance">Risk Tolerance</label>
+                                                            <select id="risk-tolerance" name="riskTolerance" required>
+                                                                <option value="aggressive" <%=userdetails &&
+                                                                    userdetails.riskTolerance==='aggressive'
+                                                                    ? 'selected' : '' %>>Aggressive</option>
+                                                                <option value="balanced" <%=userdetails &&
+                                                                    userdetails.riskTolerance==='balanced' ? 'selected'
+                                                                    : '' %>>Balanced</option>
+                                                                <option value="conservative" <%=userdetails &&
+                                                                    userdetails.riskTolerance==='conservative'
+                                                                    ? 'selected' : '' %>>Conservative</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-lg-12 col-md-12">
+                                                            <button type="submit" class="theme-btn btn-style-one">Update
+                                                                Profile</button>
+                                                            <button type="button" id="show-insights"
+                                                                class="theme-btn btn-style-two"
+                                                                style="margin-left: 10px;">Show Insights</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <!-- Results section for displaying pie and doughnut charts -->
+                                                <div id="result" style="display: none; margin-top: 20px;">
+                                                    <h2 style="font-size: 30px; font-weight: bold; margin-bottom: 20px;">Results: </h2> <!-- Increased font size for header -->
+                                                    <div style=" box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                                                        <div class="charts-container" style="background-color: white; padding: 10px; border-radius: 8px; display: flex; align-items: center; width: 50%;">
+                                                            <canvas id="financialChart" width="250" height="250" style="margin-bottom: 2px;"></canvas> <!-- Further reduced width and height -->
+                                                            <canvas id="doughnutChart" width="250" height="250" style="margin-top: 0;"></canvas> <!-- Further reduced width and height -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                
+                                                
+
+                                                <script>
+                                                    // Function to calculate savings
+                                                    function calculateSavings() {
+                                                        const salary = parseFloat(document.getElementById('salary').value) || 0;
+                                                        const medicalExpenses = parseFloat(document.getElementById('medical-expenses').value) || 0;
+                                                        const loanEMI = parseFloat(document.getElementById('loan-emi').value) || 0;
+                                                        const lifestyleExpenses = parseFloat(document.getElementById('lifestyle-expenses').value) || 0;
+
+                                                        const totalExpenses = medicalExpenses + loanEMI + lifestyleExpenses;
+
+                                                        // Validate that total expenses do not exceed salary
+                                                        if (totalExpenses > salary) {
+                                                            alert("The total expenses cannot exceed your salary.");
+                                                            return; // Stop the submission
+                                                        }
+
+                                                        // Calculate savings
+                                                        const savings = salary - totalExpenses;
+
+                                                        // Set the savings value in the input field
+                                                        document.getElementById('savings').value = savings.toFixed(2);
+                                                    }
+
+                                                    // Add event listeners to fields to update savings on input
+                                                    document.getElementById('salary').addEventListener('input', calculateSavings);
+                                                    document.getElementById('medical-expenses').addEventListener('input', calculateSavings);
+                                                    document.getElementById('loan-emi').addEventListener('input', calculateSavings);
+                                                    document.getElementById('lifestyle-expenses').addEventListener('input', calculateSavings);
+
+                                                    // JavaScript to handle insights display
+                                                    document.getElementById('show-insights').onclick = function () {
+                                                        const salary = parseFloat(document.getElementById('salary').value) || 0;
+                                                        const medicalExpenses = parseFloat(document.getElementById('medical-expenses').value) || 0;
+                                                        const loanEMI = parseFloat(document.getElementById('loan-emi').value) || 0;
+                                                        const lifestyleExpenses = parseFloat(document.getElementById('lifestyle-expenses').value) || 0;
+                                                        const savings = parseFloat(document.getElementById('savings').value) || 0;
+
+                                                        // Calculate total expenses and savings distribution
+                                                        const investment = savings * 0.8; // 80% for investments
+                                                        const emergency = savings * 0.2; // 20% for emergencies
+
+                                                        // Data for the pie chart
+                                                        const pieData = {
+                                                            labels: [
+                                                                'Medical Expenses',
+                                                                'Loan EMI',
+                                                                'Lifestyle Expenses',
+                                                                'Investment Savings',
+                                                                'Emergency Savings'
+                                                            ],
+                                                            datasets: [{
+                                                                label: 'Financial Breakdown',
+                                                                data: [medicalExpenses, loanEMI, lifestyleExpenses, investment, emergency],
+                                                                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                                                                hoverOffset: 4
+                                                            }]
+                                                        };
+
+                                                        // Data for the doughnut chart
+                                                        const doughnutData = {
+                                                            labels: [
+                                                                'Investment Savings',
+                                                                'Emergency Savings'
+                                                            ],
+                                                            datasets: [{
+                                                                label: 'Savings Distribution',
+                                                                data: [investment, emergency],
+                                                                backgroundColor: ['#4BC0C0', '#9966FF'],
+                                                                hoverOffset: 4
+                                                            }]
+                                                        };
+
+                                                        // Display result section and hide the form
+                                                        document.getElementById('result').style.display = 'block';
+
+                                                        // Render pie chart
+                                                        // Render pie chart
+                                                        const pieCtx = document.getElementById('financialChart').getContext('2d');
+                                                        const financialChart = new Chart(pieCtx, {
+                                                            type: 'pie',
+                                                            data: pieData,
+                                                            options: {
+                                                                responsive: true,
+                                                                plugins: {
+                                                                    legend: {
+                                                                        position: 'top',
+                                                                        labels: {
+                                                                            font: {
+                                                                                size: 20 // Increase the font size for the legend
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    title: {
+                                                                        display: true,
+                                                                        text: 'Your Financial Breakdown',
+                                                                        font: {
+                                                                            size: 24 // Increase the font size for the title
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+
+                                                        // Render doughnut chart
+                                                        const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+                                                        const doughnutChart = new Chart(doughnutCtx, {
+                                                            type: 'doughnut',
+                                                            data: doughnutData,
+                                                            options: {
+                                                                responsive: true,
+                                                                plugins: {
+                                                                    legend: {
+                                                                        position: 'top',
+                                                                        labels: {
+                                                                            font: {
+                                                                                size: 20 // Increase the font size for the legend
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    title: {
+                                                                        display: true,
+                                                                        text: 'Your Savings Distribution',
+                                                                        font: {
+                                                                            size: 26 // Increase the font size for the title
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+
+                                                    };
+                                                </script>
+
+
+
+
+
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                </section>
+                <!-- End Dashboard -->
+
+
+
+
+                <!-- Copyright -->
+                <div class="copyright-text">
+                    <p>© 2024 Nivesh. All Right Reserved.</p>
+                </div>
+
+    </div><!-- End Page Wrapper -->
+
+    <script src="/javascripts/annyang.min.js"></script>
+    <script>
+        if (annyang) {
+            // Commands for voice input
+            const commands = {
+                // Write name
+                'enter name *tag': function (variable) {
+                    let name = document.getElementById("name");
+                    name.value = variable;
+                    speak('Now enter your education');
+                },
+                // Write education
+                'enter education *tag': function (variable) {
+                    let education = document.getElementById("education");
+                    education.value = variable;
+                    speak('Now enter your salary');
+                },
+                // Write salary
+                'enter salary *tag': function (variable) {
+                    let salary = document.getElementById("salary");
+                    salary.value = variable;
+                    speak('Now enter your age');
+                },
+                // Write age
+                'enter age *tag': function (variable) {
+                    let age = document.getElementById("age");
+                    age.value = variable;
+                    speak('Now enter the number of medical allotments');
+                },
+                // Write number of medical allotments
+                'enter number of medical allotments *tag': function (variable) {
+                    let medicalAllotments = document.getElementById("medical-allotments");
+                    medicalAllotments.value = variable;
+                    speak('Now enter the total medical expenses');
+                },
+                // Write total medical expenses
+                'enter total medical expenses *tag': function (variable) {
+                    let medicalExpenses = document.getElementById("medical-expenses");
+                    medicalExpenses.value = variable;
+                    speak('Now enter your loan EMI');
+                },
+                // Write loan EMI
+                'enter loan EMI *tag': function (variable) {
+                    let loanEmi = document.getElementById("loan-emi");
+                    loanEmi.value = variable;
+                    speak('Now enter your lifestyle expenses');
+                },
+                // Write lifestyle expenses
+                'enter lifestyle expenses *tag': function (variable) {
+                    let lifestyleExpenses = document.getElementById("lifestyle-expenses");
+                    lifestyleExpenses.value = variable;
+                    speak('Now enter your savings');
+                },
+                // Write savings
+                'enter savings *tag': function (variable) {
+                    let savings = document.getElementById("savings");
+                    savings.value = variable;
+                    speak('Now enter your work sector');
+                },
+                // Write work sector
+                'enter work sector *tag': function (variable) {
+                    let workSector = document.getElementById("work-sector");
+                    workSector.value = variable;
+                    speak('Now enter your risk tolerance');
+                },
+                // Select risk tolerance
+                'select risk tolerance *tag': function (variable) {
+                    let riskTolerance = document.getElementById("risk-tolerance");
+                    riskTolerance.value = variable;
+                    speak('Now enter your goal');
+                },
+                // Write goal
+                'enter goal *tag': function (variable) {
+                    let goal = document.getElementById("goal");
+                    goal.value = variable;
+                    speak('Form complete. You can now submit.');
+                },
+            };
+
+            // Add commands to Annyang
+            annyang.addCommands(commands);
+
+            // Start listening for voice commands
+            annyang.start();
+
+            // Speech function
+            function speak(text) {
+                const msg = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.speak(msg);
+            }
+
+            // Speak on page load
+            function onPageLoadSpeak() {
+                setTimeout(() => {
+                    speak('Please enter your name');
+                }, 1000);
+            }
+
+            // Call function to speak on page load
+            onPageLoadSpeak();
+
+        } else {
+            console.log('Annyang is not supported in this browser.');
+        }
+    </script>
+
+
+
+
+
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/chosen.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery-ui.min.js"></script>
+    <script src="/javascripts/jquery.fancybox.js"></script>
+    <script src="/javascripts/jquery.modal.min.js"></script>
+    <script src="/javascripts/mmenu.polyfills.js"></script>
+    <script src="/javascripts/mmenu.js"></script>
+    <script src="/javascripts/appear.js"></script>
+    <script src="/javascripts/ScrollMagic.min.js"></script>
+    <script src="/javascripts/rellax.min.js"></script>
+    <script src="/javascripts/owl.js"></script>
+    <script src="/javascripts/wow.js"></script>
+    <script src="/javascripts/script.js"></script>
+    <!--Google Map APi Key-->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDaaCBm4FEmgKs5cfVrh3JYue3Chj1kJMw&amp;ver=5.2.4"></script>
+    <script src="/javascripts/map-script.js"></script>
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                const img = document.getElementById('preview');
+                img.src = reader.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function updatePreview(input, index) {
+            const preview = document.getElementById(`preview${index}`);
+            const fileName = document.getElementById(`fileName${index}`);
+            const selectedImage = document.getElementById(`selectedImage${index}`);
+
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    fileName.textContent = file.name;
+                    selectedImage.value = file.name; // Update hidden input with selected filename
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+                fileName.textContent = "";
+                selectedImage.value = "";
+            }
+        }
+    </script>
+
+    <!--End Google Map APi-->
+</body>
+
+
+
+</html>

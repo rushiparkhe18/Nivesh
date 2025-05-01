@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Nivesh | Your Profile</title>
+
+    <!-- Stylesheets -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/responsive.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <style>
+        /* For webkit browsers like Chrome and Safari */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .upload-preview {
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 120vh; /* Full viewport height */
+            border: none; /* Remove default border */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper dashboard ">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- Header Span -->
+        <span class="header-span"></span>
+
+        <!-- Main Header-->
+        <%- include("../components/DashboardHeader") -%>
+            <!--End Main Header -->
+
+            <!-- Sidebar Backdrop -->
+            <div class="sidebar-backdrop"></div>
+
+            <!-- User Sidebar -->
+            <%- include("../components/DashboardSidebar") -%>
+
+                <!-- End User Sidebar -->
+
+                <!-- Dashboard -->
+                <section class="user-dashboard">
+                    <div class="dashboard-outer">
+                        <div class="upper-title-box">
+                            <h3>Communities!</h3>
+                            <div class="text">Ready to jump back in?</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Ls widget -->
+                                <iframe src="http://localhost:3001/" style="height: 70vh;"></iframe>
+
+                            </div>
+                </section>
+                <!-- End Dashboard -->
+
+                <!-- Copyright -->
+                <div class="copyright-text">
+                    <p>© 2024 Nivesh. All Right Reserved.</p>
+                </div>
+
+    </div><!-- End Page Wrapper -->
+
+
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/chosen.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery-ui.min.js"></script>
+    <script src="/javascripts/jquery.fancybox.js"></script>
+    <script src="/javascripts/jquery.modal.min.js"></script>
+    <script src="/javascripts/mmenu.polyfills.js"></script>
+    <script src="/javascripts/mmenu.js"></script>
+    <script src="/javascripts/appear.js"></script>
+    <script src="/javascripts/ScrollMagic.min.js"></script>
+    <script src="/javascripts/rellax.min.js"></script>
+    <script src="/javascripts/owl.js"></script>
+    <script src="/javascripts/wow.js"></script>
+    <script src="/javascripts/script.js"></script>
+    <!--Google Map APi Key-->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDaaCBm4FEmgKs5cfVrh3JYue3Chj1kJMw&amp;ver=5.2.4"></script>
+    <script src="/javascripts/map-script.js"></script>
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                const img = document.getElementById('preview');
+                img.src = reader.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function updatePreview(input, index) {
+            const preview = document.getElementById(`preview${index}`);
+            const fileName = document.getElementById(`fileName${index}`);
+            const selectedImage = document.getElementById(`selectedImage${index}`);
+
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    fileName.textContent = file.name;
+                    selectedImage.value = file.name; // Update hidden input with selected filename
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+                fileName.textContent = "";
+                selectedImage.value = "";
+            }
+        }
+    </script>
+
+    <!--End Google Map APi-->
+</body>
+
+
+
+</html>

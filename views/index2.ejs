@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+
+  <!-- Stylesheets -->
+  <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+  <link href="/stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/responsive.css" rel="stylesheet">
+
+
+  <!-- Responsive -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <!-- Bootstrap JS -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+<body data-anm=".anm">
+
+  <div class="notification-box flex flex-col items-center justify-center fixed w-full z-50 p-3">
+    <!-- Notification container -->
+  </div>
+  <% if (successMessage) { %>
+    <script>
+      sendNotification("success", " <%= successMessage %>");
+      function sendNotification(type, text) {
+        let notificationBox = document.querySelector(".notification-box");
+        const alerts = {
+          info: {
+            icon: `<svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>`,
+            color: "blue-500"
+          },
+          error: {
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>`,
+            color: "red-500"
+          },
+          warning: {
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>`,
+            color: "yellow-500"
+          },
+          success: {
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>`,
+            color: "green-500"
+          }
+        };
+        let component = document.createElement("div");
+        component.className = `relative flex items-center bg-${alerts[type].color} text-white text-sm font-bold px-4 py-3 rounded-md opacity-0 transform transition-all duration-500 mb-1`;
+        component.innerHTML = `${alerts[type].icon}<p class="text-white">${text}</p>`; // Set text color to white here
+        notificationBox.appendChild(component);
+        setTimeout(() => {
+          component.classList.remove("opacity-0");
+          component.classList.add("opacity-1");
+        }, 1); //1ms For fixing opacity on new element
+        setTimeout(() => {
+          component.classList.remove("opacity-1");
+          component.classList.add("opacity-0");
+          //component.classList.add("-translate-y-80"); //it's a little bit buggy when send multiple alerts
+          component.style.margin = 0;
+          component.style.padding = 0;
+        }, 1500); // Change to 3000ms for 3 seconds
+        setTimeout(() => {
+          component.style.setProperty("height", "0", "important");
+        }, 1600); // Change to 3100ms
+        setTimeout(() => {
+          notificationBox.removeChild(component);
+        }, 2200); // Change to 3700ms
+        //If you can do something more elegant than timeouts, please do, but i can't
+      }
+    </script>
+    <% } %>
+      <% if (errorMessage) { %>
+        <script>
+          sendNotification("error", "<%= errorMessage %>");
+          function sendNotification(type, text) {
+            let notificationBox = document.querySelector(".notification-box");
+            const alerts = {
+              info: {
+                icon: `<svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>`,
+                color: "blue-500"
+              },
+              error: {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>`,
+                color: "red-500"
+              },
+              warning: {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>`,
+                color: "yellow-500"
+              },
+              success: {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>`,
+                color: "green-500"
+              }
+            };
+            let component = document.createElement("div");
+            component.className = `relative flex items-center bg-${alerts[type].color} text-white text-sm font-bold px-4 py-3 rounded-md opacity-0 transform transition-all duration-500 mb-1`;
+            component.innerHTML = `${alerts[type].icon}<p class="text-white">${text}</p>`; // Set text color to white here
+            notificationBox.appendChild(component);
+            setTimeout(() => {
+              component.classList.remove("opacity-0");
+              component.classList.add("opacity-1");
+            }, 1); //1ms For fixing opacity on new element
+            setTimeout(() => {
+              component.classList.remove("opacity-1");
+              component.classList.add("opacity-0");
+              //component.classList.add("-translate-y-80"); //it's a little bit buggy when send multiple alerts
+              component.style.margin = 0;
+              component.style.padding = 0;
+            }, 1500); // Change to 3000ms for 3 seconds
+            setTimeout(() => {
+              component.style.setProperty("height", "0", "important");
+            }, 1600); // Change to 3100ms
+            setTimeout(() => {
+              notificationBox.removeChild(component);
+            }, 2200); // Change to 3700ms
+            //If you can do something more elegant than timeouts, please do, but i can't
+          }
+        </script>
+
+        <% } %>
+
+
+          <div class="page-wrapper">
+            <!-- Main Header-->
+            <header class="main-header -type-11">
+              <!-- Main box -->
+              <div class="main-box">
+                <!--Nav Outer -->
+                <div class="nav-outer">
+                  <div class="logo-box">
+                    <div class="logo"><a href="index.html"><img src="/images/logohack.jpeg" width="130" alt="" title=""></a></div>
+                  </div>
+
+                  <nav class="nav main-menu">
+                    <ul class="navigation" id="navbar">
+                      <li class="current">
+                        <span>Home</span>
+                      </li>
+                    </ul>
+                  </nav>
+                  <!-- Main Menu End-->
+                </div>
+
+                <div class="outer-box">
+                  <!-- Login/Register or Logout/Dashboard -->
+                  <div class="btn-box">
+                    <% if (!user) { %>
+                      <a href="/login" class="theme-btn btn-style-three btn-white-10 call-modal">Login / Register</a>
+                      <% } else { %>
+                        <a href="/logout" class="theme-btn btn-style-three btn-white-10">Logout</a>
+                        <a href="/dashboard" class="theme-btn btn-style-one btn-white"><span
+                            class="btn-title">Dashboard</span></a>
+                        <% } %>
+                  </div>
+
+
+
+
+                </div>
+              </div>
+
+
+              <!-- Mobile Header -->
+              <div class="mobile-header">
+                <div class="logo"><a href="index.html"><img src="images/logo.svg" alt="" title=""></a></div>
+
+                <!--Nav Box-->
+                <div class="nav-outer clearfix">
+                  <div class="outer-box">
+                    <!-- Login/Register or Logout -->
+                    <div class="login-box">
+
+                    </div>
+
+                    <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span
+                        class="flaticon-menu-1"></span></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mobile Nav -->
+              <div id="nav-mobile"></div>
+
+            </header>
+            <!--End Main Header -->
+
+
+            <!-- Banner Section-->
+            <section class="banner-section -type-11">
+              <div class="auto-container">
+                <div class="row">
+                  <div class="content-column col-xl-7 col-lg-8">
+                    <div class="inner-column">
+                  </div>
+                </div>
+
+
+              </div>
+          </div>
+          </section>
+          <!-- End Banner Section-->
+
+
+
+
+
+          </div><!-- End Page Wrapper -->
+
+
+          <script src="/javascripts/jquery.js"></script>
+          <script src="/javascripts/popper.min.js"></script>
+          <script src="/javascripts/chosen.min.js"></script>
+          <script src="/javascripts/bootstrap.min.js"></script>
+          <script src="/javascripts/jquery.fancybox.js"></script>
+          <script src="/javascripts/jquery.modal.min.js"></script>
+          <script src="/javascripts/mmenu.polyfills.js"></script>
+          <script src="/javascripts/mmenu.js"></script>
+          <script src="/javascripts/appear.js"></script>
+          <script src="/javascripts/anm.min.js"></script>
+          <script src="/javascripts/ScrollMagic.min.js"></script>
+          <script src="/javascripts/rellax.min.js"></script>
+          <script src="/javascripts/owl.js"></script>
+          <script src="/javascripts/wow.js"></script>
+          <script src="/javascripts/script.js"></script>
+
+
+
+          <script>
+            // Auto dismiss alerts after 5 seconds
+            window.setTimeout(function () {
+              $(".alert").alert('close');
+            }, 5000);
+
+          </script>
+
+
+
+</body>
+
+
+</html>

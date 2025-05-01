@@ -1,0 +1,36 @@
+<!-- Define the isActive function -->
+<% function isActive(currentPath, path) { %>
+    <%= currentPath === path ? 'active' : '' %>
+<% } %>
+
+<div class="user-sidebar">
+    <div class="sidebar-inner">
+        <ul class="navigation">
+            <li class="<%= isActive('/dashboard', path) %>"><a href="/dashboard"> <i class="la la-home"></i> Dashboard</a></li>
+            <li class="<%= isActive('/dashboard-profile', path) %>"><a href="/dashboard-profile"><i class="la la-user-tie"></i>Your Profile</a></li>
+            <li class="<%= isActive('/dashboard-predict', path) %>"><a href="/dashboard-predict"><i class="la la-file-invoice"></i> Investment Planning</a></li>
+            <li class="<%= isActive('/dashboard-collab', path) %>"><a href="/dashboard-collab"><i class="la la-user"></i>Collaborate</a></li>
+            <li class="<%= isActive('/dashboard-community', path) %>"><a href="/dashboard-community"><i class="la la-users"></i>Community</a></li>
+            <!-- <li class="<%= isActive('/dashboard-resumes', path) %>"><a href="/dashboard-resumes"><i class="la la-bookmark-o"></i>Shortlisted Resumes</a></li>
+            <li class="<%= isActive('/quiz-session-form', path) %>"><a href="/quiz-session-form"><i class="la la-file-alt"></i>Apptitude Test</a></li>
+            <li class="<%= isActive('/dashboard-video-call', path) %>"><a href="/room2"><i class="la la-video"></i>Video Call</a></li> -->
+            <!-- <li class="<%= isActive('/dashboard-resume-alerts', path) %>"><a href="/dashboard-resume-alerts"><i class="la la-bell"></i>Resume Alerts</a></li> -->
+            <!-- <li class="<%= isActive('/dashboard-change-password', path) %>"><a href="/dashboard-change-password"><i class="la la-lock"></i>Change Password</a></li> -->
+            <li class="<%= isActive('/logout', path) %>"><a href="/logout"><i class="la la-sign-out"></i>Logout</a></li>
+            <!-- Your sidebar code -->
+            <!-- <li class="<%= isActive('/index', path) %>">
+                <a onclick="confirmDelete();">
+                    <i class="la la-trash"></i>Delete Profile
+                </a>
+            </li> -->
+        </ul>
+    </div>
+</div>
+<script>
+    function confirmDelete() {
+      if (confirm("Are you sure you want to delete this profile?")) {
+        window.location.href = "/delete-profile"; // Redirect to delete profile route
+      }
+    }
+  </script>
+  

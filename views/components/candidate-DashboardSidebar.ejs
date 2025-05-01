@@ -1,0 +1,61 @@
+<!-- Define the isActive function -->
+<% function isActive(currentPath, path) { %>
+    <%= currentPath === path ? 'active' : '' %>
+<% } %>
+
+<div class="user-sidebar">
+    <div class="sidebar-inner">
+        <ul class="navigation">
+            <li class="<%= isActive('/candidate-dashboard', path) %>">
+                <a href='/candidate-dashboard'>
+                    <i class="la la-home"></i> Dashboard
+                </a>
+            </li>
+            <li class="<%= isActive('/candidate-dashboard-profile', path) %>">
+                <a href='/candidate-dashboard-profile'>
+                    <i class="la la-user-tie"></i>My Profile
+                </a>
+            </li>
+            <li class="<%= isActive('/candidate-dashboard-resume', path) %>">
+                <a href='/candidate-dashboard-resume'>
+                    <i class="la la-file-invoice"></i>My Resume
+                </a>
+            </li>
+            <li class="<%= isActive('/candidate-dashboard-applied-job', path) %>">
+                <a href='/candidate-dashboard-applied-job'>
+                    <i class="la la-briefcase"></i> Applied Jobs 
+                </a>
+            </li>
+            <li class="<%= isActive('/candidate-dashboard-shortlisted-resume', path) %>">
+                <a href='/candidate-dashboard-shortlisted-resume'>
+                    <i class="la la-bookmark-o"></i>Shortlisted Jobs
+                </a>
+            </li>
+            <li class="<%= isActive('/appti', path) %>"><a href="/appti"><i class="la la-file-alt"></i>Apptitude Test</a></li>
+
+            <li class="<%= isActive('/dashboard-video-call', path) %>"><a href="/room"><i class="la la-video"></i>Video Call</a></li>
+            <li class="<%= isActive('/dashboard-coding-env', path) %>"><a href="/ide"><i class="la la-code"></i>Coding Environment</a></li>
+
+
+            <!-- <li><a href='/dashboard-packages'><i class="la la-box"></i>Packages</a></li> -->
+
+            <li class="<%= isActive('/candidate-dashboard-change-password', path) %>">
+                <a href='/candidate-dashboard-change-password'>
+                    <i class="la la-lock"></i>Change Password
+                </a>
+            </li>
+            <!-- <li><a href='/dashboard-profile'><i class="la la-user-alt"></i>View Profile</a></li> -->
+            <li class="<%= isActive('/logout', path) %>">
+                <a href='/logout'>
+                    <i class="la la-sign-out"></i>Logout
+                </a>
+            </li>
+            <li class="<%= isActive('/dashboard-delete', path) %>">
+                <a href='/dashboard-delete'>
+                    <i class="la la-trash"></i>Delete Profile
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</div>

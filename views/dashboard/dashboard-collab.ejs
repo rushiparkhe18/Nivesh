@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Nivesh | Your Profile</title>
+
+    <!-- Stylesheets -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/responsive.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <style>
+        /* For webkit browsers like Chrome and Safari */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .upload-preview {
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper dashboard ">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- Header Span -->
+        <span class="header-span"></span>
+
+        <!-- Main Header-->
+        <%- include("../components/DashboardHeader") -%>
+            <!--End Main Header -->
+
+            <!-- Sidebar Backdrop -->
+            <div class="sidebar-backdrop"></div>
+
+            <!-- User Sidebar -->
+            <%- include("../components/DashboardSidebar") -%>
+
+                <!-- End User Sidebar -->
+
+                <!-- Results section for displaying pie and doughnut charts -->
+
+                <section class="user-dashboard">
+                    <div class="dashboard-outer">
+                        <div class="upper-title-box">
+                            <h3>Collaborate with people!</h3>
+                            <div class="text">Ready to jump back in?</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Ls widget -->
+                                <div class="ls-widget">
+                                    <div class="tabs-box">
+                                        <div class="widget-title">
+                                            <h4>Collab</h4>
+                                        </div>
+
+                                        <div class="widget-content">
+
+                                            <div class="widget-content">
+                                                <form class="default-form" action="/dashboard-collab/update"
+                                                    method="post">
+                                                    <div class="row">
+                                                        <!-- Full Name -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="fullName">Full Name</label>
+                                                            <input id="fullName" name="fullName" type="text"
+                                                                value="<%= userdetails?.fullName || '' %>"
+                                                                placeholder="John Doe" required>
+                                                        </div>
+
+                                                        <!-- Relationship to User -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="relationshipToUser">Relationship to User</label>
+                                                            <input id="relationshipToUser" name="relationshipToUser"
+                                                                type="text"
+                                                                value="<%= userdetails?.relationshipToUser || '' %>"
+                                                                placeholder="Spouse" required>
+                                                        </div>
+
+                                                        <!-- Age -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="age">Age</label>
+                                                            <input id="age" name="age" type="number"
+                                                                value="<%= userdetails?.age || '' %>" placeholder="30"
+                                                                required>
+                                                        </div>
+
+                                                        <!-- Occupation (Optional) -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="occupation">Occupation (Optional)</label>
+                                                            <input id="occupation" name="occupation" type="text"
+                                                                value="<%= userdetails?.occupation || '' %>"
+                                                                placeholder="Engineer">
+                                                        </div>
+
+                                                        <!-- Annual Income -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="annualIncome">Annual Income (₹)</label>
+                                                            <input id="annualIncome" name="annualIncome" type="number"
+                                                                value="<%= userdetails?.annualIncome || '' %>"
+                                                                placeholder="500000" required>
+                                                        </div>
+
+                                                        <!-- Total Medical Expenses -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="medicalExpenses">Total Medical Expenses
+                                                                (₹)</label>
+                                                            <input id="medicalExpenses" name="medicalExpenses"
+                                                                type="number"
+                                                                value="<%= userdetails?.medicalExpenses || '' %>"
+                                                                placeholder="5000" required>
+                                                        </div>
+
+                                                        <!-- Lifestyle Expenses -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="lifestyleExpenses">Lifestyle Expenses
+                                                                (₹)</label>
+                                                            <input id="lifestyleExpenses" name="lifestyleExpenses"
+                                                                type="number"
+                                                                value="<%= userdetails?.lifestyleExpenses || '' %>"
+                                                                placeholder="10000" required>
+                                                        </div>
+
+                                                        <!-- Risk Profiling -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="riskProfiling">Risk Profiling</label>
+                                                            <select id="riskProfiling" name="riskProfiling" required>
+                                                                <option value="Conservative"
+                                                                    <%=userdetails?.riskProfiling==='Conservative'
+                                                                    ? 'selected' : '' %>>Conservative</option>
+                                                                <option value="Moderate"
+                                                                    <%=userdetails?.riskProfiling==='Moderate'
+                                                                    ? 'selected' : '' %>>Moderate</option>
+                                                                <option value="Aggressive"
+                                                                    <%=userdetails?.riskProfiling==='Aggressive'
+                                                                    ? 'selected' : '' %>>Aggressive</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <!-- Investment Goals (Optional) -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="investmentGoals">Investment Goals
+                                                                (Optional)</label>
+                                                            <input id="investmentGoals" name="investmentGoals"
+                                                                type="text"
+                                                                value="<%= userdetails?.investmentGoals || '' %>"
+                                                                placeholder="Retirement, Education, etc.">
+                                                        </div>
+
+                                                        <!-- Current Investments (Optional) -->
+                                                        <div class="form-group col-lg-6 col-md-12">
+                                                            <label for="currentInvestments">Current Investments
+                                                                (Optional)</label>
+                                                            <input id="currentInvestments" name="currentInvestments"
+                                                                type="text"
+                                                                value="<%= userdetails?.currentInvestments || '' %>"
+                                                                placeholder="Stocks, Bonds, etc.">
+                                                        </div>
+
+                                                        <!-- Submit Buttons -->
+                                                        <div class="form-group col-lg-12 col-md-12">
+                                                            <button type="submit" class="theme-btn btn-style-one">Update
+                                                                Profile</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+
+
+
+
+
+
+
+
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                </section>
+                <!-- End Dashboard -->
+
+
+
+
+                <!-- Copyright -->
+                <div class="copyright-text">
+                    <p>© 2024 Nivesh. All Right Reserved.</p>
+                </div>
+
+    </div><!-- End Page Wrapper -->
+
+    <script src="/javascripts/annyang.min.js"></script>
+    <script>
+        if (annyang) {
+            // Commands for voice input
+            const commands = {
+                // Write Full Name
+                'enter full name *tag': function (variable) {
+                    let fullName = document.getElementById("fullName");
+                    fullName.value = variable;
+                    speak('Now enter the relationship to user');
+                },
+                // Write Relationship to User
+                'enter relationship to user *tag': function (variable) {
+                    let relationshipToUser = document.getElementById("relationshipToUser");
+                    relationshipToUser.value = variable;
+                    speak('Now enter your age');
+                },
+                // Write Age
+                'enter age *tag': function (variable) {
+                    let age = document.getElementById("age");
+                    age.value = variable;
+                    speak('Now enter your occupation');
+                },
+                // Write Occupation
+                'enter occupation *tag': function (variable) {
+                    let occupation = document.getElementById("occupation");
+                    occupation.value = variable;
+                    speak('Now enter your annual income');
+                },
+                // Write Annual Income
+                'enter annual income *tag': function (variable) {
+                    let annualIncome = document.getElementById("annualIncome");
+                    annualIncome.value = variable;
+                    speak('Now enter your total medical expenses');
+                },
+                // Write Total Medical Expenses
+                'enter total medical expenses *tag': function (variable) {
+                    let medicalExpenses = document.getElementById("medicalExpenses");
+                    medicalExpenses.value = variable;
+                    speak('Now enter your lifestyle expenses');
+                },
+                // Write Lifestyle Expenses
+                'enter lifestyle expenses *tag': function (variable) {
+                    let lifestyleExpenses = document.getElementById("lifestyleExpenses");
+                    lifestyleExpenses.value = variable;
+                    speak('Now select your risk profiling');
+                },
+                // Select Risk Profiling
+                'select risk profiling *tag': function (variable) {
+                    let riskProfiling = document.getElementById("riskProfiling");
+                    riskProfiling.value = variable.charAt(0).toUpperCase() + variable.slice(1).toLowerCase(); // Capitalize first letter
+                    speak('Now enter your investment goals');
+                },
+                // Write Investment Goals
+                'enter investment goals *tag': function (variable) {
+                    let investmentGoals = document.getElementById("investmentGoals");
+                    investmentGoals.value = variable;
+                    speak('Now enter your current investments');
+                },
+                // Write Current Investments
+                'enter current investments *tag': function (variable) {
+                    let currentInvestments = document.getElementById("currentInvestments");
+                    currentInvestments.value = variable;
+                    speak('Form complete. You can now submit.');
+                },
+            };
+
+            // Add commands to Annyang
+            annyang.addCommands(commands);
+
+            // Start listening for voice commands
+            annyang.start();
+
+            // Speech function
+            function speak(text) {
+                const msg = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.speak(msg);
+            }
+
+            // Speak on page load
+            function onPageLoadSpeak() {
+                setTimeout(() => {
+                    speak('Please enter your full name');
+                }, 1000);
+            }
+
+            // Call function to speak on page load
+            onPageLoadSpeak();
+
+        } else {
+            console.log('Annyang is not supported in this browser.');
+        }
+    </script>
+
+
+
+
+
+
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/popper.min.js"></script>
+    <script src="/javascripts/chosen.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery-ui.min.js"></script>
+    <script src="/javascripts/jquery.fancybox.js"></script>
+    <script src="/javascripts/jquery.modal.min.js"></script>
+    <script src="/javascripts/mmenu.polyfills.js"></script>
+    <script src="/javascripts/mmenu.js"></script>
+    <script src="/javascripts/appear.js"></script>
+    <script src="/javascripts/ScrollMagic.min.js"></script>
+    <script src="/javascripts/rellax.min.js"></script>
+    <script src="/javascripts/owl.js"></script>
+    <script src="/javascripts/wow.js"></script>
+    <script src="/javascripts/script.js"></script>
+    <!--Google Map APi Key-->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDaaCBm4FEmgKs5cfVrh3JYue3Chj1kJMw&amp;ver=5.2.4"></script>
+    <script src="/javascripts/map-script.js"></script>
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                const img = document.getElementById('preview');
+                img.src = reader.result;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function updatePreview(input, index) {
+            const preview = document.getElementById(`preview${index}`);
+            const fileName = document.getElementById(`fileName${index}`);
+            const selectedImage = document.getElementById(`selectedImage${index}`);
+
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    fileName.textContent = file.name;
+                    selectedImage.value = file.name; // Update hidden input with selected filename
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+                fileName.textContent = "";
+                selectedImage.value = "";
+            }
+        }
+    </script>
+
+    <!--End Google Map APi-->
+</body>
+
+
+
+</html>

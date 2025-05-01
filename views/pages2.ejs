@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://www.radiustheme.com/demo/wordpress/themes/finwave/xmlrpc.php">
+    <title>Pages | Nivesh</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #2b6777;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 2rem;
+            margin-top: -50px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #2b6777;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #2b6777;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                padding: 0.5rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 100;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTNDJZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 200;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTtDNZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 300;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTajNZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 400;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTNDNZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 500;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTBjNZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 600;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTT6jRZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTT0zRZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 800;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTtDRZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Archivo';
+            font-style: normal;
+            font-weight: 900;
+            font-stretch: normal;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/archivo/v19/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTnTRZ9xds.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 100;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOiCnqEu92Fr1Mu51QrEzAdKg.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOjCnqEu92Fr1Mu51TjASc6CsE.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOkCnqEu92Fr1Mu51xIIzc.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOjCnqEu92Fr1Mu51S7ACc6CsE.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOjCnqEu92Fr1Mu51TzBic6CsE.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: italic;
+            font-weight: 900;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOjCnqEu92Fr1Mu51TLBCc6CsE.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 100;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOkCnqEu92Fr1MmgVxIIzc.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 900;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmYUtfBBc9.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 100;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojIWmb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 200;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoDISmb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjo0oSmb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISmb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjovoSmb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoUoOmb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoa4Omb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoDIOmb2Rm.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 900;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoJYOmb2Rm.ttf) format('truetype');
+        }
+    </style>
+    <link rel="stylesheet" id="siteground-optimizer-combined-css-a7e319b25afe6ba75f180444b2cd054c"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-6fdf88ed798d87e05d8afb421f806fd3.css"
+        media="all" />
+    <link rel="preload"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-css-6fdf88ed798d87e05d8afb421f806fd3.css"
+        as="style">
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
+    <link rel="alternate" type="application/rss+xml" title="finwave &raquo; Feed"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="finwave &raquo; Comments Feed"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/comments/feed/" />
+    <style id='classic-theme-styles-inline-css'>
+        /*! This file is auto-generated */
+        .wp-block-button__link {
+            color: #fff;
+            background-color: #32373c;
+            border-radius: 9999px;
+            box-shadow: none;
+            text-decoration: none;
+            padding: calc(.667em + 2px) calc(1.333em + 2px);
+            font-size: 1.125em
+        }
+
+        .wp-block-file__button {
+            background: #32373c;
+            color: #fff;
+            text-decoration: none
+        }
+    </style>
+    <style id='global-styles-inline-css'>
+        :root {
+            --wp--preset--aspect-ratio--square: 1;
+            --wp--preset--aspect-ratio--4-3: 4/3;
+            --wp--preset--aspect-ratio--3-4: 3/4;
+            --wp--preset--aspect-ratio--3-2: 3/2;
+            --wp--preset--aspect-ratio--2-3: 2/3;
+            --wp--preset--aspect-ratio--16-9: 16/9;
+            --wp--preset--aspect-ratio--9-16: 9/16;
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--color--finwave-primary: #006D5B;
+            --wp--preset--color--finwave-secondary: #00473b;
+            --wp--preset--color--finwave-yellow: #ffb000;
+            --wp--preset--color--finwave-dark-gray: #edf5f4;
+            --wp--preset--color--finwave-light-gray: #f1f1f1;
+            --wp--preset--color--finwave-white: #ffffff;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--font-size--small: 16px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--font-size--normal: 24px;
+            --wp--preset--font-size--huge: 44px;
+            --wp--preset--spacing--20: 0.44rem;
+            --wp--preset--spacing--30: 0.67rem;
+            --wp--preset--spacing--40: 1rem;
+            --wp--preset--spacing--50: 1.5rem;
+            --wp--preset--spacing--60: 2.25rem;
+            --wp--preset--spacing--70: 3.38rem;
+            --wp--preset--spacing--80: 5.06rem;
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+        :where(.is-layout-flex) {
+            gap: 0.5em;
+        }
+
+        :where(.is-layout-grid) {
+            gap: 0.5em;
+        }
+
+        body .is-layout-flex {
+            display: flex;
+        }
+
+        .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .is-layout-flex> :is(*, div) {
+            margin: 0;
+        }
+
+        body .is-layout-grid {
+            display: grid;
+        }
+
+        .is-layout-grid> :is(*, div) {
+            margin: 0;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :root :where(.wp-block-pullquote) {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+    </style>
+    <style id='finwave-dynamic-inline-css'>
+        :root {
+            --rt-primary-color: #006d5b;
+            --rt-secondary-color: #00473b;
+            --rt-tertiary-color: #ffb000;
+            --rt-body-bg-color: #ffffff;
+            --rt-body-color: #6e7676;
+            --rt-border-color: #e7e7e7;
+            --rt-title-color: #041b16;
+            --rt-button-color: #ffffff;
+            --rt-button-text-color: #00030C;
+            --rt-meta-color: #006d5b;
+            --rt-meta-light: #b2c2c0;
+            --rt-gray10: #f1f1f1;
+            --rt-gray20: #edf5f4;
+            --rt-body-rgb: 110, 118, 118;
+            --rt-title-rgb: 4, 27, 22;
+            --rt-primary-rgb: 0, 109, 91;
+            --rt-secondary-rgb: 0, 71, 59;
+            --rt-tertiary-rgb: 255, 176, 0;
+            --rt-container-width: 1364px;
+        }
+
+        body {
+            color: #6e7676;
+        }
+
+        :root {
+            --rt-body-font: 'Archivo', sans-serif;
+            ;
+            --rt-heading-font: 'Archivo', sans-serif;
+            --rt-menu-font: 'Archivo', sans-serif;
+        }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            font-size: 16px;
+            line-height: 28px;
+            font-weight: 500;
+        }
+
+        .site-header {
+            font-family: 'Archivo', sans-serif;
+        }
+
+        .finwave-navigation ul li a {
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 600;
+        }
+
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+        }
+
+        body .main-header-section {
+            border-bottom: none;
+        }
+
+        body .finwave-breadcrumb-wrapper {
+            border-bottom: none;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <script type="text/javascript"
+        src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-includes/js/jquery/jquery.min.js"
+        id="jquery-core-js"></script>
+    <link rel="https://api.w.org/" href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-json/" />
+    <link rel="alternate" title="JSON" type="application/json"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-json/wp/v2/pages/8439" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/xmlrpc.php?rsd" />
+    <meta name="generator" content="WordPress 6.6.2" />
+    <link rel="canonical" href="index.html" />
+    <link rel='shortlink' href='https://www.radiustheme.com/demo/wordpress/themes/finwave/?p=8439' />
+    <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.radiustheme.com%2Fdemo%2Fwordpress%2Fthemes%2Ffinwave%2Fhome-09%2F" />
+    <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.radiustheme.com%2Fdemo%2Fwordpress%2Fthemes%2Ffinwave%2Fhome-09%2F&#038;format=xml" />
+    <style>
+        .finwave-header-footer .site-header {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.1s 0.1s
+        }
+
+        body {
+            opacity: 1
+        }
+    </style>
+    <meta name="generator"
+        content="Elementor 3.24.0; features: additional_custom_breakpoints, e_optimized_control_loading; settings: css_print_method-external, google_font-enabled, font_display-swap">
+    <style>
+        .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+        .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+            background-image: none !important;
+        }
+
+        @media screen and (max-height: 1024px) {
+
+            .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+            .e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+                background-image: none !important;
+            }
+        }
+
+        @media screen and (max-height: 640px) {
+
+            .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+            .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+                background-image: none !important;
+            }
+        }
+    </style>
+    <link rel="icon"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/08/favicon.svg"
+        sizes="32x32" />
+    <link rel="icon"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/08/favicon.svg"
+        sizes="192x192" />
+    <link rel="apple-touch-icon"
+        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/08/favicon.svg" />
+    <meta name="msapplication-TileImage"
+        content="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/08/favicon.svg" />
+</head>
+
+<body
+    class="page-template page-template-elementor_header_footer page page-id-8439 finwave-header-footer finwave-header-1 finwave-footer-2 has-trheader tr-header-light no-banner no-top-bar layout-full-width has-sticky-header elementor-default elementor-template-full-width elementor-kit-426 elementor-page elementor-page-8439">
+    <div id="page" class="site"> <!-- preloader -->
+        <header id="masthead" class="site-header headroom finwave-header-builder" role="banner">
+            <div data-elementor-type="wp-post" data-elementor-id="8437" class="elementor elementor-8437">
+                <div class="elementor-element elementor-element-0e2016d mega-menu-wrap e-flex e-con-boxed rt-parallax-bg-no e-con e-parent"
+                    data-id="0e2016d" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-2a34854 elementor-widget elementor-widget-rt-site-logo"
+                            data-id="2a34854" data-element_type="widget" data-widget_type="rt-site-logo.default">
+                            <div class="elementor-widget-container">
+                                <div class="site-branding light"> <span class="site-title"> <a href="/images/logoo.png"
+                                            rel="home" aria-label="site logo" class="has-mobile-logo"> <img width="149"
+                                                height="40" src="/images/logoo.png" class="rt-site-logo dark-logo"
+                                                alt="" decoding="async" /><img width="149" height="40"
+                                                src="/images/logoo.png" class="rt-site-logo light-logo" alt=""
+                                                decoding="async" /><img loading="lazy" width="149" height="40"
+                                                src="/images/logoo.png" class="rt-mobile-logo" alt=""
+                                                decoding="async" /> </a> </span></div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-d2e9c7e elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-rt-site-menu"
+                            data-id="d2e9c7e" data-element_type="widget" data-widget_type="rt-site-menu.default">
+                            <div class="elementor-widget-container">
+                                <nav class="finwave-navigation" role="navigation">
+                                    <div class="menu-main-menu-container">
+                                        <ul id="menu-main-menu" class="finwave-navbar">
+                                            <li id="menu-item-112"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children dropdown active menu-item-112">
+                                                <a href="/" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                            </li>
+                                            <li id="menu-item-402"
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-402">
+                                                <a href="/pages" class="dropdown-toggle"
+                                                    data-toggle="dropdown">Pages</a>
+                                            </li>
+                                            <li id="menu-item-53"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53">
+                                                <a
+                                                    href="/faq">FAQ</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="finwave-offcanvas-drawer">
+            <div class="offcanvas-logo"> <span class="site-title"> <a
+                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/" rel="home"
+                        aria-label="site logo" class="has-mobile-logo"> <img loading="lazy" width="149" height="40"
+                            src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/08/dark-logo.svg"
+                            class="rt-site-logo dark-logo" alt="" decoding="async" /><img width="149" height="40"
+                            src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/08/light-logo.svg"
+                            class="rt-site-logo light-logo" alt="" decoding="async" /><img loading="lazy" width="149"
+                            height="40"
+                            src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/08/dark-logo.svg"
+                            class="rt-mobile-logo" alt="" decoding="async" /> </a> </span> <a
+                    class="trigger-icon trigger-off-canvas" href="index.html#">×</a></div>
+            <div class="offcanvas-about offcanvas-address"> <label>About Us</label>
+                <p>Manage and streamline operations across multiple locations, sales channels, and employees to has
+                    improve efficiency and your bottom line.</p>
+            </div>
+            <nav class="offcanvas-navigation" role="navigation">
+                <div class="menu-main-menu-container">
+                    <ul id="menu-main-menu-1" class="menu">
+                        <li
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children dropdown active menu-item-112">
+                            <a href="https://www.radiustheme.com/demo/wordpress/themes/finwave/" class="dropdown-toggle"
+                                data-toggle="dropdown">Home <b class="caret"><svg width="10" height="10"
+                                        viewBox="0 0 10 10" fill="#575757" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                    </svg></b></a>
+                            <ul class="dropdown-menu depth_0">
+                                <li
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-111">
+                                    <a href="https://www.radiustheme.com/demo/wordpress/themes/finwave/">Finance
+                                        Consultancy</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-02/">Finance
+                                        Software</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-109"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-03/">Online
+                                        Banking</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-04/">Tax
+                                        Advisory</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-05/">Finance
+                                        Insurance</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-06/">Finance
+                                        Loan</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8434"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-07/">Finance
+                                        Audit</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8433"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-08/">Finance
+                                        Cash Back</a></li>
+                                <li
+                                    class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-8439 current_page_item active menu-item-8591">
+                                    <a href="index.html">Investment</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8590"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/home-10/">Finance
+                                        Accountant</a></li>
+                            </ul>
+                        </li>
+                        <li
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-402">
+                            <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Pages <b
+                                    class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                    </svg></b></a>
+                            <ul class="dropdown-menu depth_0">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/about-us/">About
+                                        Us</a></li>
+                                <li
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-6305 dropdown-submenu">
+                                    <a href="https://www.radiustheme.com/demo/wordpress/themes/finwave/team/"
+                                        class="dropdown-toggle" data-toggle="dropdown">Team <b class="caret"><svg
+                                                width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6188">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/team/?rt_team_style=default&amp;rt_team_style=default">Team
+                                                Layout One</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6189">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/team/?rt_team_style=2&amp;rt_team_style=2">Team
+                                                Layout Two</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6190">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/team/?rt_team_style=3&amp;rt_team_style=3">Team
+                                                Layout Three</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6191">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/team/?rt_team_style=4&amp;rt_team_style=4">Team
+                                                Layout Four</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-rt-team menu-item-406">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/team/guy-hawkins/">Team
+                                                Details</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-6304 dropdown-submenu">
+                                    <a href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project/"
+                                        class="dropdown-toggle" data-toggle="dropdown">Project <b class="caret"><svg
+                                                width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6192">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project/?rt_project_style=default&amp;rt_project_style=default">Project
+                                                Layout One</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6193">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project/?rt_project_style=2&amp;rt_project_style=2">Project
+                                                Layout Two</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6194">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project/?rt_project_style=3&amp;rt_project_style=3">Project
+                                                Layout Three</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6195">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project/?rt_project_style=4&amp;rt_project_style=4">Project
+                                                Layout Four</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6196">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project/?rt_project_style=5&amp;rt_project_style=5">Project
+                                                Layout Five</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-rt-project menu-item-407">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project/manufacturing-project/">Project
+                                                Details</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6123"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/pricing-table/">Pricing
+                                        Table</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3616"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/faqs/">Faq’s</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-409"><a
+                                        href="https://www.radiustheme.com/demo/wordpress/themes/finwave/404.php">404
+                                        Page</a></li>
+                            </ul>
+                        </li>
+                        <li
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-7908 mega-menu mega-menu-col-5 hide-header">
+                            <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Elements <b
+                                    class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                    </svg></b></a>
+                            <ul class="dropdown-menu depth_0">
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-7909 dropdown-submenu">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Col1 <b
+                                            class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7936">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/ajax-search/">Ajax
+                                                Search</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7937">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/animation/">Animation</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7938">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/button/">Button</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7939">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/clients/">Clients</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7940">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/contact-info/">Contact
+                                                Info</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7941">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/counter/">Counter</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8056">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/typography/">Typography</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8586">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/hero-slider/">Hero
+                                                Slider</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-7910 dropdown-submenu">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Col2 <b
+                                            class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7943">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/heading/">Heading</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7944">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/headline-animation/">Headline
+                                                Animation</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7942">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/gradient-text/">Gradient
+                                                Text</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7927">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/text-width-list/">Text
+                                                Width List</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7932">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/inline-image-text/">Inline
+                                                Image Text</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7934">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/pricing-tables/">Pricing
+                                                Tables</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8588">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/pricing-tab/">Pricing
+                                                Tab</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8059">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/opening-hour/">Opening
+                                                Hour</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-7911 dropdown-submenu">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">col3 <b
+                                            class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7919">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/rating/">Rating</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7935">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/progress-bar/">Progress
+                                                Bar</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7920">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/scroll-parallax/">Scroll
+                                                Parallax</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7921">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/scrolling-text/">Scrolling
+                                                Text</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7922">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/shape/">Shape</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7923">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/site-logo/">Site
+                                                Logo</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8058">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/working-process/">Working
+                                                Process</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8589">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/case-study/">Case
+                                                Study</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-7912 dropdown-submenu">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">col4 <b
+                                            class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7931">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/info-box/">Info
+                                                Box</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7933">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/post/">Post</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7925">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/teams/">Teams</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7926">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/testimonial/">Testimonial</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7917">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project-2/">Project</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7918">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/project-isotope/">Project
+                                                Isotope</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8057">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/menu-icons/">Menu
+                                                Icons</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8619">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/tabs/">Tabs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-7913 dropdown-submenu">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">col5 <b
+                                            class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7929">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/image/">Image</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7962">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/icon-with-text/">Icon
+                                                With Text</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7930">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/image-gallery/">Image
+                                                Gallery</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7924">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/social-icon/">Social
+                                                Icon</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7928">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/video/">Video</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7961">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/download/">Download</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8587">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/copyright/">Copyright</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-52 mega-menu mega-menu-col-2">
+                            <a href="https://www.radiustheme.com/demo/wordpress/themes/finwave/blog/"
+                                class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"><svg width="10"
+                                        height="10" viewBox="0 0 10 10" fill="#575757"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                    </svg></b></a>
+                            <ul class="dropdown-menu depth_0">
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-424 dropdown-submenu">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Blog Arhive <b
+                                            class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5905">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/blog/?rt_blog_style=default&amp;blog_layout=full-width&amp;rt_blog_style=default&amp;blog_layout=full-width">Blog
+                                                Grid One</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-411">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/blog/?rt_blog_style=grid-2&amp;rt_blog_style=grid-2">Blog
+                                                Grid Two</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-413">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/blog/?rt_blog_style=grid-3&amp;rt_blog_style=grid-3">Blog
+                                                Grid Three</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-414">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/blog/?rt_blog_style=grid-4&amp;rt_blog_style=grid-4">Blog
+                                                Grid Four</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-417">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/blog/?rt_blog_style=list&amp;rt_blog_content_visibility=1&amp;rt_blog_footer_visibility=1&amp;rt_blog_style=list&amp;rt_blog_footer_visibility=1">Blog
+                                                List One</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-418">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/blog/?rt_blog_style=list-2&amp;rt_blog_column=col-lg-12&amp;rt_blog_content_visibility=1&amp;rt_blog_footer_visibility=1&amp;rt_blog_style=list-2&amp;rt_blog_column=col-lg-12&amp;rt_blog_content_visibility=1&amp;rt_blog_footer_visibility=1">Blog
+                                                List Two</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li
+                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-425 dropdown-submenu">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">Blog Single <b
+                                            class="caret"><svg width="10" height="10" viewBox="0 0 10 10" fill="#575757"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.78571 2.21429C9.5 1.92857 9.07143 1.92857 8.78571 2.21429L5 6L1.21429 2.21429C0.928571 1.92857 0.5 1.92857 0.214286 2.21429C-0.0714286 2.5 -0.0714286 2.92857 0.214286 3.21429L4.5 7.5C4.64286 7.64286 4.85714 7.71429 5 7.71429C5.14286 7.71429 5.35714 7.64286 5.5 7.5L9.78571 3.21429C10.0714 2.92857 10.0714 2.5 9.78571 2.21429Z" />
+                                            </svg></b></a>
+                                    <ul class="dropdown-menu sub-menu depth_1">
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-post menu-item-88">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/combining-graphic-brilliance-with-technical-excellence/">Default
+                                                From Theme</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-post menu-item-113">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/affiliate-marketing-channels-strategies-tips-for-2024/?rt_single_post_style=2">Container
+                                                width Thumb</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-post menu-item-114">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/how-to-find-youtube-influencers-for-your-brand-or-product/?rt_single_post_style=3">Transparent
+                                                Thumb</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-post menu-item-115">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/exploring-the-opportunity-of-live-shopping-with-tiktok/?rt_single_post_style=4">Content
+                                                Over on Thumb</a>
+                                        </li>
+                                        <li
+                                            class="menu-item menu-item-type-post_type menu-item-object-post menu-item-116">
+                                            <a
+                                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/want-happy-accounting-clients-these-strategies-will-help-you/?rt_single_post_style=1">Meta
+                                                Under Thumb</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53"><a
+                                href="https://www.radiustheme.com/demo/wordpress/themes/finwave/contact/">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav><!-- .finwave-navigation -->
+            <div class="offcanvas-address"> <label>Contact Info</label>
+                <ul class="offcanvas-info">
+                    <li><i class="icon-rt-location-4"></i>57 Park Ave, New York</li>
+                    <li><i class="icon-rt-phone-2"></i><a href="tel:+123-7767-8989">+123-7767-8989</a></li>
+                    <li><i class="icon-rt-email"></i><a href="mailto:info@gmail.com">info@gmail.com</a></li>
+                    <li><i class="icon-rt-development-service"></i>https://example.com</li>
+                </ul>
+                <div class="offcanvas-social-icon"> <a target="_blank" href="https://www.facebook.com/"
+                        aria-label="social link"> <span class='rticon-facebook'><svg xmlns="http://www.w3.org/2000/svg"
+                                height="16" width="10" viewBox="0 0 320 512">
+                                <path
+                                    d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
+                            </svg></span> </a> <a target="_blank" href="https://x.com/" aria-label="social link"> <span
+                            class='rticon-twitter'><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                            </svg></span> </a> <a target="_blank" href="https://www.pinterest.com/"
+                        aria-label="social link"> <span class='rticon-pinterest'><svg xmlns="http://www.w3.org/2000/svg"
+                                height="16" width="12" viewBox="0 0 384 512">
+                                <path
+                                    d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z" />
+                            </svg></span> </a> <a target="_blank" href="https://www.instagram.com/"
+                        aria-label="social link"> <span class='rticon-instagram'><svg xmlns="http://www.w3.org/2000/svg"
+                                height="16" width="14" viewBox="0 0 448 512">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </svg></span> </a></div>
+            </div>
+        </div><!-- .container -->
+        <div class="finwave-body-overlay"></div>
+        <div id="header-search" class="header-search">
+            <div class="header-search-wrap"> <button type="button" aria-label="close button" class="close">×</button>
+                <form method="get" class="header-search-form"
+                    action="https://www.radiustheme.com/demo/wordpress/themes/finwave/"> <input type="search" value=""
+                        name="s" placeholder="Type your search........"> <button type="submit"
+                        aria-label="submit button" class="search-btn"><i class="icon-rt-search"></i></button></form>
+            </div>
+        </div>
+        <div id="content" class="site-content">
+            <div data-elementor-type="wp-page" data-elementor-id="8439" class="elementor elementor-8439">
+                <div class="elementor-element elementor-element-bb1e079 e-flex e-con-boxed rt-parallax-bg-no e-con e-parent"
+                    data-id="bb1e079" data-element_type="container"
+                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-cf6f737 e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                            data-id="cf6f737" data-element_type="container">
+                            <div class="elementor-element elementor-element-ca48477 elementor-absolute elementor-widget elementor-widget-rt-image"
+                                data-id="ca48477" data-element_type="widget"
+                                data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                                data-widget_type="rt-image.default">
+                                <div class="elementor-widget-container">
+                                    <div class="rt-image-layout rt-image-layout-1 ">
+                                        <div class="rt-image wow zoomIn" data-wow-delay="200ms"
+                                            data-wow-duration="1200ms">
+                                            <div data-parallax='{"y" : , "x" : }'> <img loading="lazy" decoding="async"
+                                                    width="78" height="68"
+                                                    src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h8_hero_shape-min.png"
+                                                    class="attachment-full size-full" alt="" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-a652eb1 e-con-full e-flex rt-parallax-bg-no e-con e-parent"
+                    data-id="a652eb1" data-element_type="container">
+                    <div class="elementor-element elementor-element-5b97a75 e-con-full hero9-margin-left e-flex rt-parallax-bg-no e-con e-child"
+                        data-id="5b97a75" data-element_type="container">
+                        <div class="elementor-element elementor-element-37d65b9 elementor-widget elementor-widget-rt-image"
+                            data-id="37d65b9" data-element_type="widget" data-widget_type="rt-image.default">
+                            <div class="elementor-widget-container">
+                                <div class="rt-image-layout rt-image-layout-1 ">
+                                    <div class="rt-image wow-off fadeInUp" data-wow-delay="200ms"
+                                        data-wow-duration="1200ms">
+                                        <div data-parallax='{"y" : , "x" : }'> <img loading="lazy" decoding="async"
+                                                width="2448" height="1200"
+                                                src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9_hero_banner-min.jpg"
+                                                class="attachment-full size-full" alt=""
+                                                srcset="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9_hero_banner-min.jpg 2448w, https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9_hero_banner-min-300x147.jpg 300w, https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9_hero_banner-min-1024x502.jpg 1024w, https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9_hero_banner-min-768x376.jpg 768w, https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9_hero_banner-min-1536x753.jpg 1536w, https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9_hero_banner-min-2048x1004.jpg 2048w"
+                                                sizes="(max-width: 2448px) 100vw, 2448px" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-61b08c1 elementor-absolute elementor-invisible elementor-widget elementor-widget-rt-image"
+                            data-id="61b08c1" data-element_type="widget"
+                            data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                            data-widget_type="rt-image.default">
+                            <div class="elementor-widget-container">
+                                <div class="rt-image-layout rt-image-layout-2 ">
+                                    <div class="rt-image wow-off fadeInUp" data-wow-delay="200ms"
+                                        data-wow-duration="1200ms" style="position: relative; z-index: 1"> <span
+                                            class="rt-img spin" data-parallax='{"y" : , "x" : }'
+                                            style="animation-duration: 15s"> <img loading="lazy" decoding="async"
+                                                width="246" height="246"
+                                                src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9-agency-circle-min.png"
+                                                class="attachment-full size-full" alt=""
+                                                srcset="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9-agency-circle-min.png 246w, https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/09/h9-agency-circle-min-150x150.png 150w"
+                                                sizes="(max-width: 246px) 100vw, 246px" /> </span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-94e8590 e-flex e-con-boxed rt-parallax-bg-no e-con e-parent"
+                    data-id="94e8590" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-1e0e8bf e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                            data-id="1e0e8bf" data-element_type="container">
+                            <div class="elementor-element elementor-element-644827d elementor-invisible elementor-widget elementor-widget-rt-title"
+                                data-id="644827d" data-element_type="widget" data-widget_type="rt-title.default">
+                                <div class="elementor-widget-container">
+                                    <div class="section-title-wrapper ">
+                                        <div class="title-inner-wrapper ah-headline"> <!--Top Sub Title-->
+                                            <!--Main Title-->
+                                            <div class="wow-off fadeInUp" data-wow-delay="400ms"
+                                                data-wow-duration="1200ms">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-4dced69 e-flex e-con-boxed rt-parallax-bg-no e-con e-parent"
+                    data-id="4dced69" data-element_type="container">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-1694443 e-con-full sidebar-sticky-200 e-flex rt-parallax-bg-no e-con e-child"
+                            data-id="1694443" data-element_type="container">
+                            <div class="elementor-element elementor-element-8494b9b elementor-invisible elementor-widget elementor-widget-rt-title"
+                                data-id="8494b9b" data-element_type="widget" data-widget_type="rt-title.default">
+                                <div class="elementor-widget-container">
+                                    <div class="section-title-wrapper ">
+                                        <div class="title-inner-wrapper ah-headline"> <!--Top Sub Title-->
+                                            <div class="top-sub-title-wrap wow-off fadeIn" data-wow-delay="200ms"
+                                                data-wow-duration="1200ms"> <span class="top-sub-title default">
+                                                    Financial literacy </span></div> <!--Main Title-->
+                                            <div class="wow-off fadeIn" data-wow-delay="400ms"
+                                                data-wow-duration="1200ms">
+                                                <h2 class="main-title title-gradient-animation no no middle ">Empower
+                                                    Your Finances with Simple Steps</h2>
+                                            </div> <!--Description-->
+                                            <div class="description wow-off fadeIn" data-wow-delay="600ms"
+                                                data-wow-duration="1200ms">
+                                                <p>Your guide to mastering personal finance in a dynamic and engaging
+                                                    way.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-70810fc elementor-invisible elementor-widget elementor-widget-rt-button"
+                                data-id="70810fc" data-element_type="widget" data-widget_type="rt-button.default">
+                                <div class="elementor-widget-container">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-5a81cb5 e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                            data-id="5a81cb5" data-element_type="container">
+                            <div class="elementor-element elementor-element-ab83370 elementor-invisible elementor-widget elementor-widget-rt-info-box"
+                                data-id="ab83370" data-element_type="widget" data-widget_type="rt-info-box.default">
+                                <div class="elementor-widget-container">
+                                    <div class="rt-info-box rt-info-layout-2" data-parallax='{"y" : , "x" : }'>
+                                        <div class="info-box wow zoomIn" data-wow-delay="200ms"
+                                            data-wow-duration="1500ms">
+                                            <div class="info-icon-holder icon-holder">
+                                                <div class="info-icon"> <svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="56" height="55" viewBox="0 0 56 55" fill="none">
+                                                        <path
+                                                            d="M44.1012 55.275C41.9012 55.275 39.7425 54.6425 37.8588 53.4462C34.8338 54.6562 31.52 55.275 28.1238 55.275C12.9025 55.275 0.5 42.8725 0.5 27.6375C0.5 21.725 2.35625 16.0737 5.84875 11.3162L5.82125 0H11.4175V3.5475H14.6487C18.7188 1.2375 23.4075 0 28.1375 0C43.3725 0 55.775 12.4025 55.775 27.6375C55.775 31.02 55.17 34.3338 53.96 37.4825C55.1425 39.2425 55.775 41.3875 55.775 43.6012C55.775 46.255 54.8675 48.8537 53.2038 50.9162L53.1213 51.0263L51.5263 49.7475L51.6087 49.6375C52.9975 47.9187 53.7262 45.8287 53.7262 43.615C53.7262 38.3075 49.4087 33.99 44.1012 33.99C38.7937 33.99 34.4762 38.3075 34.4762 43.615C34.4762 48.9225 38.7937 53.24 44.1012 53.24C46.4112 53.24 48.6387 52.415 50.385 50.9025L50.495 50.82L51.8288 52.3738L51.7188 52.47C49.6013 54.2987 46.8925 55.3025 44.1012 55.3025V55.275ZM29.155 53.1987C31.5063 53.1025 33.8025 52.7038 36.0025 51.9888C33.72 49.7888 32.4275 46.75 32.4275 43.6012C32.4275 37.1662 37.6662 31.9275 44.1012 31.9275C47.25 31.9275 50.2888 33.2337 52.4888 35.5025C53.2038 33.2887 53.6025 30.9925 53.6987 28.655H29.1688V53.1987H29.155ZM2.57625 28.655C3.09875 41.9237 13.8375 52.6625 27.1063 53.185V28.655H2.57625ZM53.6987 26.6063C53.6162 24.5163 53.2863 22.4675 52.7088 20.4738L46.5762 26.6063H53.6987ZM43.7438 26.6063L51.9663 18.315C51.4988 17.1325 50.9487 15.9775 50.3162 14.8775L40.7188 24.475L39.275 23.0312L49.2025 13.1037C48.5287 12.1275 47.7588 11.1787 46.9338 10.285L30.6125 26.6063H35.755L38.1612 24.145L39.605 25.5888L38.6012 26.5925H43.7438V26.6063ZM27.12 26.6063V2.09C22.8025 2.255 18.5812 3.52 14.91 5.7475L14.965 7.095H18.5125V10.6425H22.06V14.19H25.6075V23.3337H5.82125V15.1388C3.8275 18.6725 2.74125 22.5225 2.59 26.6063H27.12ZM29.1275 20.1163L29.1688 25.1625L45.49 8.84125C44.5963 8.01625 43.6475 7.26 42.6713 6.5725L40.9387 8.305L39.495 6.86125L40.8975 5.45875C39.8112 4.82625 38.6562 4.27625 37.46 3.80875L29.1412 12.1275L29.1825 17.1737L38.5738 7.7825L40.0175 9.22625L29.1275 20.1163ZM23.5725 21.285V16.2388H22.0737V21.285H23.5725ZM20.025 21.285V12.6912H18.5262V21.285H20.025ZM16.4775 21.285V9.14375H14.9787V21.285H16.4775ZM12.93 21.285V5.59625H11.4312V21.285H12.93ZM9.3825 21.285V2.04875H7.88375V21.285H9.3825ZM29.1688 9.19875L35.2875 3.06625C33.3075 2.48875 31.245 2.15875 29.1688 2.07625V9.19875Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M22.1852 32.1395L11.3443 42.9803L12.793 44.429L23.6338 33.5882L22.1852 32.1395Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M21.0425 44.6325C19.5025 44.6325 18.2375 43.3813 18.2375 41.8275C18.2375 40.2738 19.4887 39.0362 21.0425 39.0362C22.5962 39.0362 23.8475 40.2875 23.8475 41.8275C23.8475 43.3675 22.5962 44.6325 21.0425 44.6325ZM21.0425 41.085C20.63 41.085 20.2863 41.4288 20.2863 41.8275C20.2863 42.2263 20.6162 42.5837 21.0425 42.5837C21.4687 42.5837 21.785 42.24 21.785 41.8275C21.785 41.415 21.455 41.085 21.0425 41.085Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M13.9475 37.5375C12.4075 37.5375 11.1425 36.2863 11.1425 34.7325C11.1425 33.1788 12.3937 31.9275 13.9475 31.9275C15.5012 31.9275 16.7525 33.1788 16.7525 34.7325C16.7525 36.2863 15.5012 37.5375 13.9475 37.5375ZM13.9475 33.99C13.535 33.99 13.1912 34.3338 13.1912 34.7325C13.1912 35.1313 13.5212 35.4887 13.9475 35.4887C14.3737 35.4887 14.69 35.145 14.69 34.7325C14.69 34.32 14.36 33.99 13.9475 33.99Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M43.0837 51.7275V49.7887C41.5162 49.335 40.4163 47.8913 40.4163 46.2688V46.1312H42.465V46.2688C42.465 47.1763 43.1937 47.905 44.1012 47.905C45.0087 47.905 45.7375 47.1763 45.7375 46.2688C45.7375 45.3613 45.0087 44.6325 44.1012 44.6325C42.0662 44.6325 40.4163 42.9825 40.4163 40.9475C40.4163 39.3113 41.5025 37.8812 43.0837 37.4137V35.475H45.1325V37.4137C46.7 37.8675 47.8 39.3113 47.8 40.9475V41.085H45.7512V40.9475C45.7512 40.04 45.0225 39.3113 44.115 39.3113C43.2075 39.3113 42.4788 40.04 42.4788 40.9475C42.4788 41.855 43.2075 42.5837 44.115 42.5837C46.15 42.5837 47.8 44.2338 47.8 46.2688C47.8 47.905 46.7137 49.335 45.1325 49.7887V51.7275H43.0837Z"
+                                                            fill="#006D5B"></path>
+                                                        <path d="M52.2275 42.5837H50.1788V44.6325H52.2275V42.5837Z"
+                                                            fill="#006D5B"></path>
+                                                        <path d="M38.0375 42.5837H35.9887V44.6325H38.0375V42.5837Z"
+                                                            fill="#006D5B"></path>
+                                                    </svg></div>
+                                            </div>
+                                            <div class="info-content-holder">
+                                                <h3 class="info-title"><a>What is Investing?</a></h3>
+                                                <div class="content-holder">
+                                                    <p>Investing involves putting your money into assets like stocks,
+                                                        bonds, or mutual funds to grow wealth over time.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-94107ec elementor-invisible elementor-widget elementor-widget-rt-info-box"
+                                data-id="94107ec" data-element_type="widget" data-widget_type="rt-info-box.default">
+                                <div class="elementor-widget-container">
+                                    <div class="rt-info-box rt-info-layout-2" data-parallax='{"y" : , "x" : }'>
+                                        <div class="info-box wow zoomIn" data-wow-delay="400ms"
+                                            data-wow-duration="1500ms">
+                                            <div class="info-icon-holder icon-holder">
+                                                <div class="info-icon"> <svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="55" height="55" viewBox="0 0 55 55" fill="none">
+                                                        <path
+                                                            d="M53.9258 22.4242H47.0508C46.4575 22.4242 45.9766 22.9052 45.9766 23.4984V28.9232C45.9766 29.5164 46.4575 29.9975 47.0508 29.9975C47.6441 29.9975 48.125 29.5164 48.125 28.9232V24.5726H52.8516V52.8516H48.125V36.9799C48.125 36.3867 47.6441 35.9057 47.0508 35.9057C46.4575 35.9057 45.9766 36.3867 45.9766 36.9799V52.8516H43.8281V30.6152C43.8281 30.0221 43.3472 29.541 42.7539 29.541H35.8789C35.2856 29.541 34.8047 30.0221 34.8047 30.6152V52.8516H32.6563V38.1348C32.6563 37.5416 32.1753 37.0605 31.582 37.0605H24.707C24.1137 37.0605 23.6328 37.5416 23.6328 38.1348V52.8516H21.4844V44.2981C21.4844 43.7049 21.0034 43.2239 20.4102 43.2239H13.5352C12.9419 43.2239 12.4609 43.7049 12.4609 44.2981V52.8516H3.22266C2.63033 52.8516 2.14844 52.3697 2.14844 51.7773V3.22266C2.14844 2.63033 2.63033 2.14844 3.22266 2.14844H30.9348V9.2386C30.9348 11.0156 32.3805 12.4613 34.1575 12.4613H41.2473V25.6738C41.2473 26.267 41.7282 26.748 42.3215 26.748C42.9148 26.748 43.3958 26.267 43.3958 25.6738V11.387C43.3958 11.1022 43.2825 10.829 43.0811 10.6275L32.7686 0.314639C32.5671 0.113223 32.2939 0 32.009 0H3.22266C1.44568 0 0 1.44568 0 3.22266V51.7773C0 53.5543 1.44568 55 3.22266 55H53.9258C54.5191 55 55 54.519 55 53.9258V23.4984C55 22.9052 54.5191 22.4242 53.9258 22.4242ZM33.0833 3.66771L39.7283 10.3128H34.1575C33.565 10.3128 33.0833 9.83093 33.0833 9.2386V3.66771ZM19.3359 52.8516H14.6094V45.3723H19.3359V52.8516ZM30.5078 52.8516H25.7813V39.209H30.5078V52.8516ZM41.6797 52.8516H36.9531V31.6895H41.6797V52.8516Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M47.8103 31.9924C47.6105 31.7916 47.3333 31.6776 47.0508 31.6776C46.7683 31.6776 46.4911 31.7916 46.2913 31.9924C46.0915 32.1922 45.9766 32.4693 45.9766 32.7519C45.9766 33.0344 46.0915 33.3115 46.2913 33.5113C46.4911 33.711 46.7683 33.8261 47.0508 33.8261C47.3333 33.8261 47.6105 33.7111 47.8103 33.5113C48.0101 33.3115 48.125 33.0344 48.125 32.7519C48.125 32.4693 48.0101 32.1922 47.8103 31.9924Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M15.6382 5.87909C15.0449 5.87909 14.5639 6.36013 14.5639 6.95331V8.88572C9.6192 9.42251 5.75803 13.6227 5.75803 18.7078C5.75803 24.1557 10.1903 28.588 15.6382 28.588C20.7233 28.588 24.9235 24.7269 25.4603 19.7821H27.3926C27.9859 19.7821 28.4668 19.301 28.4668 18.7078C28.4668 11.634 22.7119 5.87909 15.6382 5.87909ZM15.6382 26.4394C11.3749 26.4394 7.90647 22.971 7.90647 18.7077C7.90647 14.8091 10.8074 11.575 14.5639 11.0505V18.7077C14.5639 19.3009 15.0449 19.782 15.6382 19.782H23.2954C22.7709 23.5385 19.5368 26.4394 15.6382 26.4394ZM16.7124 17.6336V8.08113C21.7453 8.58623 25.7597 12.6007 26.2648 17.6336H16.7124Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M27.3926 31.6089H6.875C6.28171 31.6089 5.80078 32.0899 5.80078 32.6831C5.80078 33.2763 6.28171 33.7573 6.875 33.7573H27.3926C27.9859 33.7573 28.4668 33.2763 28.4668 32.6831C28.4668 32.0899 27.9859 31.6089 27.3926 31.6089Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M13.75 36.792H6.875C6.28171 36.792 5.80078 37.273 5.80078 37.8662C5.80078 38.4594 6.28171 38.9404 6.875 38.9404H13.75C14.3433 38.9404 14.8242 38.4594 14.8242 37.8662C14.8242 37.273 14.3433 36.792 13.75 36.792Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M19.8892 37.1067C19.6894 36.9069 19.4122 36.792 19.1297 36.792C18.8461 36.792 18.57 36.9068 18.3702 37.1067C18.1693 37.3065 18.0555 37.5837 18.0555 37.8662C18.0555 38.1487 18.1693 38.4259 18.3702 38.6256C18.57 38.8254 18.8461 38.9404 19.1297 38.9404C19.4122 38.9404 19.6894 38.8255 19.8892 38.6256C20.089 38.4259 20.2039 38.1487 20.2039 37.8662C20.2039 37.5837 20.089 37.3065 19.8892 37.1067Z"
+                                                            fill="#006D5B"></path>
+                                                    </svg></div>
+                                            </div>
+                                            <div class="info-content-holder">
+                                                <h3 class="info-title"><a>Saving vs Investing
+                                                    </a></h3>
+                                                <div class="content-holder">
+                                                    <p>Understand when to save and when to invest. Savings grow
+                                                        steadily, while investments have higher potential returns.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-8b89b26 elementor-invisible elementor-widget elementor-widget-rt-info-box"
+                                data-id="8b89b26" data-element_type="widget" data-widget_type="rt-info-box.default">
+                                <div class="elementor-widget-container">
+                                    <div class="rt-info-box rt-info-layout-2" data-parallax='{"y" : , "x" : }'>
+                                        <div class="info-box wow zoomIn" data-wow-delay="800ms"
+                                            data-wow-duration="1500ms">
+                                            <div class="info-icon-holder icon-holder">
+                                                <div class="info-icon"> <svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="55" height="55" viewBox="0 0 55 55" fill="none">
+                                                        <path
+                                                            d="M53.1597 34.7965H45.3863C43.9739 28.9936 40.5907 23.861 35.8146 20.2754C36.1387 19.9661 36.3819 19.5819 36.5228 19.1566C36.6637 18.7313 36.698 18.2779 36.6226 17.8363C36.5472 17.3947 36.3644 16.9783 36.0904 16.6239C35.8164 16.2694 35.4595 15.9877 35.0511 15.8035L37.4342 7.38848C37.5905 6.84381 37.6182 6.27029 37.5153 5.71307C37.4123 5.15585 37.1814 4.63013 36.8408 4.17728C36.5002 3.72444 36.0591 3.35683 35.5523 3.10339C35.0454 2.84995 34.4867 2.7176 33.9201 2.71675H32.262C31.7798 1.87908 31.0854 1.18329 30.2486 0.699482C29.4119 0.215674 28.4624 -0.0390625 27.4959 -0.0390625C26.5293 -0.0390625 25.5799 0.215674 24.7431 0.699482C23.9064 1.18329 23.2119 1.87908 22.7297 2.71675H21.0707C20.5047 2.7179 19.9466 2.8503 19.4404 3.10354C18.9341 3.35679 18.4935 3.72398 18.1532 4.17627C17.8128 4.62855 17.5819 5.15361 17.4788 5.71018C17.3756 6.26674 17.4029 6.83965 17.5585 7.38389L19.9415 15.8035C19.5329 15.9878 19.1759 16.2697 18.9018 16.6244C18.6277 16.9791 18.4451 17.3957 18.3698 17.8376C18.2946 18.2795 18.3291 18.7331 18.4704 19.1585C18.6116 19.5839 18.8553 19.9681 19.1799 20.2772C14.4151 23.8734 11.0338 29.0006 9.60452 34.7965H2.74862C2.21681 34.7942 1.69582 34.9467 1.24931 35.2356C0.802798 35.5245 0.450092 35.9372 0.234281 36.4233C0.018469 36.9093 -0.0511041 37.4477 0.0340606 37.9727C0.119225 38.4976 0.355441 38.9864 0.713849 39.3793C0.254079 39.8791 -0.0011047 40.5334 -0.0011047 41.2125C-0.0011047 41.8915 0.254079 42.5458 0.713849 43.0456C0.443643 43.3405 0.241721 43.6913 0.122438 44.0731C0.0031543 44.4549 -0.0305609 44.8582 0.0236886 45.2545C0.0779381 45.6508 0.21882 46.0303 0.43632 46.366C0.653819 46.7016 0.942596 46.9853 1.28212 47.1967C1.04162 47.6053 0.914789 48.0708 0.914789 48.545C0.914789 49.0191 1.04162 49.4846 1.28212 49.8932C0.777622 50.2103 0.390018 50.6829 0.177874 51.2397C-0.0342707 51.7965 -0.059428 52.4072 0.106203 52.9796C0.271834 53.5519 0.619253 54.0548 1.09597 54.4123C1.57268 54.7697 2.15278 54.9623 2.74862 54.9609H17.4137C17.9196 54.9592 18.4153 54.8175 18.8457 54.5516C19.2762 54.2857 19.6247 53.9058 19.8526 53.4541C22.2785 54.4475 24.8745 54.9593 27.4959 54.9609H53.1597C53.6458 54.9609 54.1121 54.7678 54.4559 54.424C54.7997 54.0802 54.9928 53.614 54.9928 53.1278V36.6296C54.9928 36.1435 54.7997 35.6772 54.4559 35.3334C54.1121 34.9896 53.6458 34.7965 53.1597 34.7965ZM53.1597 39.2492C52.5294 39.0853 51.9543 38.756 51.4938 38.2955C51.0333 37.835 50.704 37.2599 50.5401 36.6296H53.1597V39.2492ZM21.0799 19.2149C20.8368 19.2149 20.6037 19.1183 20.4318 18.9465C20.2599 18.7746 20.1633 18.5414 20.1633 18.2983C20.1633 18.0553 20.2599 17.8221 20.4318 17.6502C20.6037 17.4783 20.8368 17.3818 21.0799 17.3818H33.9118C34.1549 17.3818 34.388 17.4783 34.5599 17.6502C34.7318 17.8221 34.8284 18.0553 34.8284 18.2983C34.8284 18.5414 34.7318 18.7746 34.5599 18.9465C34.388 19.1183 34.1549 19.2149 33.9118 19.2149H21.0799ZM19.6189 5.27763C19.7871 5.05144 20.006 4.8678 20.2579 4.74142C20.5099 4.61505 20.788 4.54945 21.0698 4.54988H22.0781C22.0254 4.8526 21.9982 5.15919 21.9965 5.46644V9.1327C21.9965 9.37579 22.093 9.60892 22.2649 9.78081C22.4368 9.9527 22.67 10.0493 22.913 10.0493C23.1561 10.0493 23.3893 9.9527 23.5612 9.78081C23.733 9.60892 23.8296 9.37579 23.8296 9.1327V5.46644C23.828 4.96177 23.9317 4.46232 24.1339 3.99994C24.419 3.34562 24.8889 2.78875 25.486 2.39765C26.083 2.00654 26.7812 1.79821 27.495 1.79821C28.2087 1.79821 28.9069 2.00654 29.5039 2.39765C30.101 2.78875 30.5709 3.34562 30.856 3.99994C31.0589 4.46218 31.1631 4.96164 31.1621 5.46644V9.1327C31.1621 9.37579 31.2587 9.60892 31.4306 9.78081C31.6025 9.9527 31.8356 10.0493 32.0787 10.0493C32.3218 10.0493 32.5549 9.9527 32.7268 9.78081C32.8987 9.60892 32.9953 9.37579 32.9953 9.1327V5.46644C32.9933 5.15916 32.9657 4.85258 32.9128 4.54988H33.921C34.2034 4.55206 34.4815 4.61947 34.7336 4.74684C34.9856 4.87422 35.2049 5.05811 35.3742 5.28418C35.5434 5.51025 35.6582 5.77238 35.7095 6.05011C35.7608 6.32784 35.7472 6.61367 35.6698 6.88528L33.2189 15.5487H21.7728L19.321 6.8807C19.242 6.6088 19.2277 6.32216 19.2795 6.04377C19.3312 5.76538 19.4475 5.50298 19.6189 5.27763ZM2.74862 36.6296H17.4137C17.6567 36.6296 17.8899 36.7262 18.0618 36.8981C18.2337 37.07 18.3302 37.3031 18.3302 37.5462C18.3302 37.7893 18.2337 38.0224 18.0618 38.1943C17.8899 38.3662 17.6567 38.4628 17.4137 38.4628H2.74862C2.50553 38.4628 2.2724 38.3662 2.10051 38.1943C1.92862 38.0224 1.83206 37.7893 1.83206 37.5462C1.83206 37.3031 1.92862 37.07 2.10051 36.8981C2.2724 36.7262 2.50553 36.6296 2.74862 36.6296ZM2.74862 48.545C2.74862 48.3019 2.84519 48.0688 3.01708 47.8969C3.18897 47.725 3.4221 47.6284 3.66519 47.6284H18.3302C18.5733 47.6284 18.8064 47.725 18.9783 47.8969C19.1502 48.0688 19.2468 48.3019 19.2468 48.545C19.2468 48.7881 19.1502 49.0212 18.9783 49.1931C18.8064 49.365 18.5733 49.4615 18.3302 49.4615H3.66519C3.4221 49.4615 3.18897 49.365 3.01708 49.1931C2.84519 49.0212 2.74862 48.7881 2.74862 48.545ZM2.74862 45.7953C2.50553 45.7953 2.2724 45.6987 2.10051 45.5268C1.92862 45.3549 1.83206 45.1218 1.83206 44.8787C1.83206 44.6356 1.92862 44.4025 2.10051 44.2306C2.2724 44.0587 2.50553 43.9622 2.74862 43.9622H17.4137C17.6567 43.9622 17.8899 44.0587 18.0618 44.2306C18.2337 44.4025 18.3302 44.6356 18.3302 44.8787C18.3302 45.1218 18.2337 45.3549 18.0618 45.5268C17.8899 45.6987 17.6567 45.7953 17.4137 45.7953H2.74862ZM1.83206 41.2125C1.83206 40.9694 1.92862 40.7362 2.10051 40.5644C2.2724 40.3925 2.50553 40.2959 2.74862 40.2959H17.4137C17.6567 40.2959 17.8899 40.3925 18.0618 40.5644C18.2337 40.7362 18.3302 40.9694 18.3302 41.2125C18.3302 41.4555 18.2337 41.6887 18.0618 41.8606C17.8899 42.0325 17.6567 42.129 17.4137 42.129H2.74862C2.50553 42.129 2.2724 42.0325 2.10051 41.8606C1.92862 41.6887 1.83206 41.4555 1.83206 41.2125ZM17.4137 53.1278H2.74862C2.50553 53.1278 2.2724 53.0312 2.10051 52.8593C1.92862 52.6875 1.83206 52.4543 1.83206 52.2112C1.83206 51.9681 1.92862 51.735 2.10051 51.5631C2.2724 51.3912 2.50553 51.2947 2.74862 51.2947H17.4137C17.6567 51.2947 17.8899 51.3912 18.0618 51.5631C18.2337 51.735 18.3302 51.9681 18.3302 52.2112C18.3302 52.4543 18.2337 52.6875 18.0618 52.8593C17.8899 53.0312 17.6567 53.1278 17.4137 53.1278ZM20.0717 51.5476C20.0112 51.3081 19.9187 51.0778 19.7967 50.863C20.1897 50.6171 20.5138 50.2754 20.7384 49.87C20.9631 49.4645 21.0809 49.0085 21.0809 48.545C21.0809 48.0814 20.9631 47.6255 20.7384 47.22C20.5138 46.8145 20.1897 46.4728 19.7967 46.227C20.0876 45.7295 20.2107 45.1516 20.148 44.5788C20.0853 44.0059 19.84 43.4684 19.4484 43.0456C19.9082 42.5458 20.1634 41.8915 20.1634 41.2125C20.1634 40.5334 19.9082 39.8791 19.4484 39.3793C19.8068 38.9864 20.0431 38.4976 20.1282 37.9727C20.2134 37.4477 20.1438 36.9093 19.928 36.4233C19.7122 35.9372 19.3595 35.5245 18.913 35.2356C18.4665 34.9467 17.9455 34.7942 17.4137 34.7965H11.4807C12.8354 29.3998 16.9077 23.6813 21.3411 21.048H33.6497C39.2756 24.3825 43.994 32.2943 43.994 38.4628C43.994 46.5487 36.5928 53.1278 27.4959 53.1278C24.938 53.1251 22.409 52.5869 20.0717 51.5476ZM45.8272 38.4628C45.8216 37.8498 45.7797 37.2377 45.7016 36.6296H48.6593C48.8514 37.7533 49.3874 38.7897 50.1935 39.5958C50.9996 40.4019 52.036 40.9379 53.1597 41.13V48.6275C52.036 48.8195 50.9996 49.3556 50.1935 50.1616C49.3874 50.9677 48.8514 52.0041 48.6593 53.1278H35.8558C41.7677 50.3864 45.8272 44.8485 45.8272 38.4628ZM50.5401 53.1278C50.704 52.4975 51.0333 51.9224 51.4938 51.4619C51.9543 51.0014 52.5294 50.6722 53.1597 50.5083V53.1278H50.5401Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M49.4934 47.6284C50.0373 47.6284 50.5689 47.4671 51.0211 47.165C51.4732 46.8629 51.8257 46.4334 52.0338 45.931C52.2419 45.4285 52.2964 44.8757 52.1903 44.3423C52.0842 43.8089 51.8223 43.3189 51.4377 42.9344C51.0532 42.5498 50.5632 42.288 50.0299 42.1819C49.4965 42.0758 48.9436 42.1302 48.4412 42.3383C47.9387 42.5465 47.5093 42.8989 47.2071 43.3511C46.905 43.8033 46.7437 44.3349 46.7437 44.8787C46.7437 45.608 47.0334 46.3074 47.5491 46.823C48.0648 47.3387 48.7641 47.6284 49.4934 47.6284ZM49.4934 43.9622C49.6747 43.9622 49.8519 44.0159 50.0026 44.1166C50.1534 44.2173 50.2708 44.3605 50.3402 44.528C50.4096 44.6954 50.4277 44.8797 50.3924 45.0575C50.357 45.2353 50.2697 45.3986 50.1415 45.5268C50.0133 45.655 49.85 45.7423 49.6722 45.7777C49.4944 45.813 49.3101 45.7949 49.1427 45.7255C48.9752 45.6561 48.832 45.5387 48.7313 45.3879C48.6306 45.2372 48.5768 45.06 48.5768 44.8787C48.5768 44.6356 48.6734 44.4025 48.8453 44.2306C49.0172 44.0587 49.2503 43.9622 49.4934 43.9622Z"
+                                                            fill="#006D5B"></path>
+                                                        <path
+                                                            d="M30.2456 32.9634C30.2456 33.2065 30.3421 33.4396 30.514 33.6115C30.6859 33.7834 30.919 33.8799 31.1621 33.8799C31.4052 33.8799 31.6383 33.7834 31.8102 33.6115C31.9821 33.4396 32.0787 33.2065 32.0787 32.9634C32.0774 31.9073 31.712 30.884 31.0441 30.0659C30.3763 29.2478 29.4469 28.6849 28.4124 28.4722V28.3806C28.4124 28.1375 28.3159 27.9043 28.144 27.7324C27.9721 27.5606 27.739 27.464 27.4959 27.464C27.2528 27.464 27.0196 27.5606 26.8478 27.7324C26.6759 27.9043 26.5793 28.1375 26.5793 28.3806V28.4722C25.5433 28.6826 24.6119 29.2446 23.9429 30.0631C23.2739 30.8816 22.9084 31.9063 22.9084 32.9634C22.9084 34.0205 23.2739 35.0451 23.9429 35.8636C24.6119 36.6821 25.5433 37.2442 26.5793 37.4545V42.8779C26.0449 42.6889 25.5819 42.3394 25.2538 41.8772C24.9256 41.415 24.7483 40.8627 24.7462 40.2959C24.7462 40.0528 24.6496 39.8197 24.4777 39.6478C24.3058 39.4759 24.0727 39.3793 23.8296 39.3793C23.5865 39.3793 23.3534 39.4759 23.1815 39.6478C23.0096 39.8197 22.913 40.0528 22.913 40.2959C22.9144 41.352 23.2798 42.3753 23.9476 43.1934C24.6154 44.0115 25.5449 44.5743 26.5793 44.7871V44.8787C26.5793 45.1218 26.6759 45.3549 26.8478 45.5268C27.0196 45.6987 27.2528 45.7953 27.4959 45.7953C27.739 45.7953 27.9721 45.6987 28.144 45.5268C28.3159 45.3549 28.4124 45.1218 28.4124 44.8787V44.7871C29.4484 44.5767 30.3798 44.0146 31.0488 43.1961C31.7178 42.3776 32.0833 41.353 32.0833 40.2959C32.0833 39.2388 31.7178 38.2142 31.0488 37.3956C30.3798 36.5771 29.4484 36.0151 28.4124 35.8047V30.3823C28.9467 30.5712 29.4096 30.9206 29.7377 31.3826C30.0658 31.8446 30.2432 32.3967 30.2456 32.9634ZM24.7462 32.9634C24.7485 32.3967 24.9259 31.8446 25.254 31.3826C25.5822 30.9206 26.045 30.5712 26.5793 30.3823V35.5444C26.045 35.3555 25.5822 35.0062 25.254 34.5442C24.9259 34.0822 24.7485 33.5301 24.7462 32.9634ZM30.2456 40.2959C30.2432 40.8626 30.0658 41.4147 29.7377 41.8767C29.4096 42.3387 28.9467 42.6881 28.4124 42.8769V37.7148C28.9467 37.9037 29.4096 38.2531 29.7377 38.7151C30.0658 39.1771 30.2432 39.7292 30.2456 40.2959Z"
+                                                            fill="#006D5B"></path>
+                                                    </svg></div>
+                                            </div>
+                                            <div class="info-content-holder">
+                                                <h3 class="info-title"><a>Understanding Interest
+                                                    </a></h3>
+                                                <div class="content-holder">
+                                                    <p>Learn the difference between simple and compound interest.
+                                                        Compound interest can exponentially increase your wealth!.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="bg-white" style="display: flex; align-items: center; ">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-black">Test Your
+                    Knowledge</span></h1>
+
+                <p class="mt-4 text-gray-800 xl:mt-6 dark:text-gray-800">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum quam voluptatibus
+                </p>
+
+                <div class="flex justify-center mt-8">
+                    <div
+                        class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-19 md:grid-cols-2 xl:grid-cols-2 w-full max-w-5xl">
+                        <div class="p-8 space-y-3 border-2 border-green-400 dark:border-green-300 rounded-xl">
+                            <span class="inline-block text-green-500 dark:text-green-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                                </svg>
+                            </span>
+
+                            <h1 class="text-xl font-semibold text-gray-800 capitalize dark:text-black">Beginner's Quiz
+                            </h1>
+
+                            <p class="text-gray-800 dark:text-gray-800">
+                                Test your understanding of basic financial concepts like budgeting, saving, and interest
+                                rates.
+                            </p>
+
+                            <a href="/testingb"
+                                class="inline-flex p-2 text-green-500 capitalize transition-colors duration-300 transform bg-green-100 rounded-full rtl:-scale-x-100 dark:bg-green-500 dark:text-black hover:underline hover:text-green-600 dark:hover:text-green-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="p-8 space-y-3 border-2 border-green-400 dark:border-green-300 rounded-xl">
+                            <span class="inline-block text-green-500 dark:text-green-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                </svg>
+                            </span>
+
+                            <h1 class="text-xl font-semibold text-gray-800 capitalize dark:text-black">Advanced Investor
+                                Quiz</h1>
+
+                            <p class="text-gray-800 dark:text-gray-800">
+                                Ready to dive deeper? Test your knowledge on advanced investing strategies and market
+                                trends.
+                            </p>
+
+                            <a href="/testinga"
+                                class="inline-flex p-2 text-green-500 capitalize transition-colors duration-300 transform bg-green-100 rounded-full rtl:-scale-x-100 dark:bg-green-500 dark:text-black hover:underline hover:text-green-600 dark:hover:text-green-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- #content -->
+        
+
+        <section class="content" style="margin-top: 2%;">
+            <div class="card">
+                <h2>Interactive Investment Dashboard</h2>
+                <p>Track your portfolio, analyze trends, and make informed decisions with real-time data visualization.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Personalized Financial Goals Tracker</h2>
+                <p>Set financial goals and monitor your progress with personalized insights and automated reminders.</p>
+            </div>
+
+            <div class="card">
+                <h2>AI Chatbot for Financial Queries</h2>
+                <p>Get 24/7 assistance and personalized recommendations from our AI-powered financial chatbot.</p>
+            </div>
+
+            <div class="card">
+                <h2>Investment Risk Simulation Tool</h2>
+                <p>Simulate market scenarios and assess how they impact your portfolio, helping you make better
+                    decisions.</p>
+            </div>
+
+            <div class="card">
+                <h2>Socially Responsible Investing Filters</h2>
+                <p>Align your investments with ethical values using filters for environmental, social, and governance
+                    criteria.</p>
+            </div>
+
+            <!-- Add more cards for other features -->
+        </section>
+
+
+        <footer class="site-footer finwave-footer-builder" role="contentinfo">
+            <div data-elementor-type="wp-post" data-elementor-id="8451" class="elementor elementor-8451">
+
+                <div class="elementor-element elementor-element-e78c35e e-flex e-con-boxed rt-parallax-bg-no e-con e-parent"
+                    data-id="e78c35e" data-element_type="container"
+                    data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                    <div class="e-con-inner">
+                        <div class="elementor-element elementor-element-3e9c5be e-flex e-con-boxed rt-parallax-bg-no e-con e-child"
+                            data-id="3e9c5be" data-element_type="container">
+                            <div class="e-con-inner">
+                                <div class="elementor-element elementor-element-0cc353a e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                                    data-id="0cc353a" data-element_type="container">
+                                    <div class="elementor-element elementor-element-688d8ab elementor-widget elementor-widget-rt-site-logo"
+                                        data-id="688d8ab" data-element_type="widget"
+                                        data-widget_type="rt-site-logo.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="site-branding light"> <a
+                                                    href="https://www.radiustheme.com/demo/wordpress/themes/finwave/"
+                                                    rel="home" aria-label="site logo" class="has-mobile-logo"> <img
+                                                        width="149" height="40"
+                                                        src="/images/logoo.png"
+                                                        class="rt-site-logo dark-logo" alt="" decoding="async" /><img
+                                                        width="149" height="40"
+                                                        src="/images/logoo.png"
+                                                        class="rt-site-logo light-logo" alt="" decoding="async" /><img
+                                                        width="149" height="40"
+                                                        src="/images/logoo.png"
+                                                        class="rt-mobile-logo" alt="" decoding="async" /> </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-2a2640b e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                                    data-id="2a2640b" data-element_type="container">
+                                    <div class="elementor-element elementor-element-7462d4c elementor-invisible elementor-widget elementor-widget-rt-title"
+                                        data-id="7462d4c" data-element_type="widget"
+                                        data-widget_type="rt-title.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="section-title-wrapper ">
+                                                <div class="title-inner-wrapper ah-headline"> <!--Top Sub Title-->
+                                                    <!--Main Title-->
+                                                    <div class="wow-off fadeInUp" data-wow-delay="400ms"
+                                                        data-wow-duration="1200ms">
+                                                        <a href="/">
+                                                            <h2 class="main-title middle">Home</h2>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-0435c1e e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                                    data-id="0435c1e" data-element_type="container">
+                                    <div class="elementor-element elementor-element-321acf6 elementor-invisible elementor-widget elementor-widget-rt-title"
+                                        data-id="321acf6" data-element_type="widget"
+                                        data-widget_type="rt-title.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="section-title-wrapper ">
+                                                <div class="title-inner-wrapper ah-headline"> <!--Top Sub Title-->
+                                                    <!--Main Title-->
+                                                    <div class="wow-off fadeInUp" data-wow-delay="400ms"
+                                                        data-wow-duration="1200ms">
+                                                        <a href="/pages">
+                                                            <h2 class="main-title middle">Pages</h2>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-7208bcc e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                                    data-id="7208bcc" data-element_type="container">
+                                    <div class="elementor-element elementor-element-642d3c6 elementor-invisible elementor-widget elementor-widget-rt-title"
+                                        data-id="642d3c6" data-element_type="widget"
+                                        data-widget_type="rt-title.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="section-title-wrapper ">
+                                                <div class="title-inner-wrapper ah-headline"> <!--Top Sub Title-->
+                                                    <!--Main Title-->
+                                                    <div class="wow-off fadeInUp" data-wow-delay="400ms"
+                                                        data-wow-duration="1200ms">
+                                                        <a href="/faq">
+                                                            <h2 class="main-title middle">FAQ</h2>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-bbb6654 e-con-full e-flex rt-parallax-bg-no e-con e-child"
+                            data-id="bbb6654" data-element_type="container">
+                            <div class="elementor-element elementor-element-e814785 elementor-invisible elementor-widget elementor-widget-rt-contact-info"
+                                data-id="e814785" data-element_type="widget" data-widget_type="rt-contact-info.default">
+                                <div class="elementor-widget-container">
+                                    <div class="rt-contact-info wow-off fadeInUp" data-wow-delay="200ms"
+                                        data-wow-duration="1200ms">
+                                        <div class="content-holder">
+                                            <ul class="contact-list list-vertical">
+                                                <li class="list "> Copyright © 2024 <a href="/">Nivesh</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-25d72ce elementor-absolute elementor-hidden-mobile elementor-widget elementor-widget-rt-image"
+                                data-id="25d72ce" data-element_type="widget"
+                                data-settings="{&quot;_position&quot;:&quot;absolute&quot;}"
+                                data-widget_type="rt-image.default">
+                                <div class="elementor-widget-container">
+                                    <div class="rt-image-layout rt-image-layout-1 ">
+                                        <div class="rt-image wow slideInUp" data-wow-delay="200ms"
+                                            data-wow-duration="1200ms">
+                                            <div data-parallax='{"y" : , "x" : }'> <img width="608" height="369"
+                                                    src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/2024/07/yellow-shape-1.svg"
+                                                    class="attachment-full size-full" alt="" decoding="async" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+    </div><!-- #page -->
+    <script type="text/javascript" id="finwave-main-js-extra"> /* <![CDATA[ */
+        var finwaveObj = { "rtl": "ltr", "ajaxURL": "https:\/\/www.radiustheme.com\/demo\/wordpress\/themes\/finwave\/wp-admin\/admin-ajax.php", "finwaveNonce": "21124f7f6b" };
+        /* ]]> */</script>
+    <script type="text/javascript" id="elementor-frontend-js-before"> /* <![CDATA[ */
+        var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close", "a11yCarouselWrapperAriaLabel": "Carousel | Horizontal scrolling: Arrow Left & Right", "a11yCarouselPrevSlideMessage": "Previous slide", "a11yCarouselNextSlideMessage": "Next slide", "a11yCarouselFirstSlideMessage": "This is the first slide", "a11yCarouselLastSlideMessage": "This is the last slide", "a11yCarouselPaginationBulletMessage": "Go to slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Mobile Portrait", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Mobile Landscape", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet Portrait", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet Landscape", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Laptop", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Widescreen", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } } }, "version": "3.24.0", "is_static": false, "experimentalFeatures": { "additional_custom_breakpoints": true, "container": true, "container_grid": true, "e_swiper_latest": true, "e_nested_atomic_repeaters": true, "e_optimized_control_loading": true, "e_onboarding": true, "home_screen": true, "ai-layout": true, "link-in-bio": true, "floating-buttons": true }, "urls": { "assets": "https:\/\/www.radiustheme.com\/demo\/wordpress\/themes\/finwave\/wp-content\/plugins\/elementor\/assets\/", "ajaxurl": "https:\/\/www.radiustheme.com\/demo\/wordpress\/themes\/finwave\/wp-admin\/admin-ajax.php" }, "nonces": { "floatingButtonsClickTracking": "3adc0f0b9a" }, "swiperClass": "swiper", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 8439, "title": "Home%2009%20%E2%80%93%20finwave", "excerpt": "", "featuredImage": false } };
+        /* ]]> */</script>
+    <script defer
+        src="https://www.radiustheme.com/demo/wordpress/themes/finwave/wp-content/uploads/siteground-optimizer-assets/siteground-optimizer-combined-js-32253db20aa7e1f037ec7e2eb9665bad.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/95f4a0a5-b3c3-40d3-bbd4-74ce46bfb347/webchat/config.js"
+        defer></script>
+</body>
+
+</html>

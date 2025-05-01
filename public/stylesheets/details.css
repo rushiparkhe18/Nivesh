@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+
+:root {
+    --primary-bg-color: #006d5b;
+    --secondary-bg-color: #006d5b;
+    --font-color: #333;
+    --font-family: 'Montserrat', sans-serif;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--primary-bg-color);
+    font-family: var(--font-family);
+}
+
+.signup-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-container {
+    background: #FFB000;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.left-container h1 {
+    font-size: 24px;
+}
+
+.right-container {
+    background: rgb(224, 223, 223);
+    padding: 40px;
+}
+
+.right-container header h1 {
+    color: var(--font-color);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.set {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.field {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.field:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--font-color);
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+input:focus, select:focus {
+    border-color: var(--secondary-bg-color);
+    outline: none;
+}
+
+footer {
+    text-align: center;
+}
+
+button {
+    background: var(--secondary-bg-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.dropdown {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M8 12l-4-4h8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}

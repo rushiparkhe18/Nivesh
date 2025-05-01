@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Assessment Form</title>
+    <link rel="stylesheet" href="/stylesheets/details.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="left-container">
+            <h1>
+                <i class="fas fa-money-bill-wave"></i>
+                Finance Form
+            </h1>
+        </div>
+        <div class="right-container">
+            <header>
+                <h1>Financial Assessment</h1>
+            </header>
+            <form action="/userdetails" method="post">
+                <div class="set">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="field">
+                        <label for="education">Education</label>
+                        <input id="education" name="education" type="text" placeholder="Your Education" required>
+                    </div>
+                </div>
+                <div class="set">
+                    <div class="field">
+                        <label for="salary">Salary</label>
+                        <input id="salary" name="salary" type="number" placeholder="Annual Salary" required>
+                    </div>
+                    <div class="field">
+                        <label for="age">Age</label>
+                        <input id="age" name="age" type="number" placeholder="Your Age" required>
+                    </div>
+                </div>
+                <div class="set">
+                    <div class="field">
+                        <label for="medical-emergencies">Medical Emergencies</label>
+                        <input id="medical-emergencies" name="medicalEmergencies" type="text" placeholder="Details" required>
+                    </div>
+                    <div class="field">
+                        <label for="medical-allotments">Medical Allotments</label>
+                        <input id="medical-allotments" name="medicalAllotments" type="text" placeholder="Amount" required>
+                    </div>
+                </div>
+                <div class="set">
+                    <div class="field">
+                        <label for="work-sector">Work Sector</label>
+                        <input id="work-sector" name="workSector" type="text" placeholder="Your Work Sector" required>
+                    </div>
+                    <div class="field">
+                        <label for="job-security">Job Security</label>
+                        <input id="job-security" name="jobSecurity" type="text" placeholder="Job Security Level" required>
+                    </div>
+                </div>
+                <div class="set">
+                    <div class="field">
+                        <label for="family-members">Family Members</label>
+                        <input id="family-members" name="familyMembers" type="number" placeholder="Number of Family Members" required>
+                    </div>
+                    <div class="field">
+                        <label for="other-expenses">Other Expenses</label>
+                        <input id="other-expenses" name="otherExpenses" type="text" placeholder="Details" required>
+                    </div>
+                </div>
+                <div class="set">
+                    <div class="field">
+                        <label for="risk-tolerance">Risk Tolerance</label>
+                        <select id="risk-tolerance" name="riskTolerance" class="dropdown" required>
+                            <option value="" disabled selected>Select your risk tolerance</option>
+                            <option value="aggressive">Aggressive</option>
+                            <option value="balanced">Balanced</option>
+                            <option value="conservative">Conservative</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="goal">Goal</label>
+                        <input id="goal" name="goal" type="text" placeholder="Your Financial Goal" required>
+                    </div>
+                </div>
+                <footer>
+                    <button type="submit">Submit</button>
+                </footer>
+            </form>
+            
+            
+        </div>
+    </div>
+</body>
+</html>
